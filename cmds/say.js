@@ -15,5 +15,6 @@ module.exports = {
 		const content = interaction.options.getString("訊息內容"); 
 		await interaction.reply({ content: "訊息已傳送", ephemeral: true });
 		await interaction.channel.send(content);
+		console.log(`>say ${content}\n `)
 	},
 }
