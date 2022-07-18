@@ -54,5 +54,21 @@ Attention:YOU CAN NOT PUT A SPACE KEY BETWEEN THE "=".
 
 The `.env` file that can help your token into public.
 
+## Configure
+* Install the dependencies:
+```bash
+$ npm install
+```
+* Deploy slash command:
+```bash
+$ node deploy.js
+```
+* Run the bot:
+```bash
+$ node app.js
+```
+
 ## At the End
 If you have any problems, you can join my discord server(see at README.md), and Mention me, then I will help you as possible as I can.
+
+BUT IF YOU JUST COPY PRASTE THE CODE AND YOU DON'T KNOW WHAT YOU ARE DOING, I WILL **NOT** HELP YOU.
