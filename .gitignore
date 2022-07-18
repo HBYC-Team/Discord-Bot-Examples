@@ -1,2 +1,8 @@
 .env
 node_modules/
+prod/
+app.ts
+tsconfig.json
+cmds/announcement.js
+cmds/presence.js
+cmds/thinking.js
