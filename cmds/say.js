@@ -1,19 +1,19 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const data = new SlashCommandBuilder()
+const say = new SlashCommandBuilder()
 	.setName("say")
-	.setDescription("sent a message")
+	.setDescription("讓HBYC發送一則訊息")
 	.addStringOption(option => 
-		option.setName("message")
-			.setDescription("The content of the message.")
+		option.setName("訊息內容")
+			.setDescription("要發送的訊息內容")
 			.setRequired(true));
 
 
 module.exports = {
-	data: data,
+	data: say,
 	async execute(interaction) {
-		const content = interaction.options.getString("say"); 
-		await interaction.reply({ content: "The message has been send.", ephemeral: true });
+		const content = interaction.options.getString("訊息內容"); 
+		await interaction.reply({ content: "訊息已傳送", ephemeral: true });
 		await interaction.channel.send(content);
-	}
+	},
 }
