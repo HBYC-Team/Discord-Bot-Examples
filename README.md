@@ -1,17 +1,30 @@
-# HBYC_JS Rewrite
-This Repo is STILL IN DEVELOPING.
+# HBYC
+![license](https://img.shields.io/github/license/dragonyc1002/HBYC?style=for-the-badge)
+![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC?style=for-the-badge)
+![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badge)
+[![EMU900!!!](./public/images/banner.jpeg)](https://reurl.cc/GxQqdy)
+A simple Discord Bot that using discord.js v14.
 
-THE AUTHOR IS STILL LEARINING discord.js.
+## What's the feature in this repo?
+* Deploy slash command using discord.js v14.
+* Easy Game, Chat commands.
 
+## Tutorial
+See at [tutorial](./docs/tutorial.md).
 
-## Deploy Slash Commands
-Use `$ node deploy_commands.js`.
+## CommandList
+See at [CommandList](./docs/CommandList.md) file.
 
-## Run
-`$ node app.js`
+## LICENSE
+See at [LICENSE](./LICENSE) file.
 
-## Install Dependencies
-`$ npm install`
+## Changelog
+See at [Changelog](./CHANGELOG.md) file.
 
-## License
-MIT Liscense.
+## Attention
+This repo is not all open-source, few commands are non-open source.
+
+## Author
+恐龍#2549/dragonyc1002。
+
+If you have any question or problem, you can contract me at [Our Discord Server(Still in building)](https://discord.gg/J7X2nWXszp)。
