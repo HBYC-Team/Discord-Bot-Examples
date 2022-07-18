@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 const info = new SlashCommandBuilder()
 	.setName("info")
@@ -23,7 +23,7 @@ module.exports = {
 			if(member === null){
 				const member = interaction.user;
 				const guildInfo = interaction.guild.members.cache.get(member.id)
-				const memberEmbed = new MessageEmbed()
+				const memberEmbed = new EmbedBuilder()
                     .setColor("#B0EA6B")
                     .setTitle(`${member.tag} 的資訊`)
                     .addFields(
@@ -39,7 +39,7 @@ module.exports = {
 			} else {
 				if(member.bot === true){
 					const guildInfo = interaction.guild.members.cache.get(member.id)
-					const memberEmbed = new MessageEmbed()
+					const memberEmbed = new EmbedBuilder()
                     	.setColor("#B0EA6B")
                     	.setTitle(`${member.tag} 的資訊`)
                     	.addFields(
@@ -54,7 +54,7 @@ module.exports = {
                		await interaction.reply({ embeds: [memberEmbed] });
 				} else {
 					const guildInfo = interaction.guild.members.cache.get(member.id)
-					const memberEmbed = new MessageEmbed()
+					const memberEmbed = new EmbedBuilder()
                     	.setColor("#B0EA6B")
                     	.setTitle(`${member.tag} 的資訊`)
                     	.addFields(
@@ -71,7 +71,7 @@ module.exports = {
 			}
 		} else {
 			const guild = interaction.guild
-			const memberEmbed = new MessageEmbed()
+			const memberEmbed = new EmbedBuilder()
                	.setColor("#B0EA6B")
                	.setTitle(`${guild.name} 的資訊`)
                 .addFields(
