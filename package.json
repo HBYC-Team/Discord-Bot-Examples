@@ -2,7 +2,7 @@
   "name": "hbyc_js",
   "version": "0.1.0",
   "description": "discord.js learn",
-  "main": "app.js",
+  "main": "app.js", 
   "dependencies": {
     "@discordjs/rest": "^0.5.0",
     "@hizollo/games": "^2.3.0",
@@ -93,7 +93,7 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -108,7 +108,10 @@
   "directories": {
     "doc": "docs"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.0.6",
+    "typescript": "^4.7.4"
+  },
   "keywords": [
     "HBYC"
   ]
