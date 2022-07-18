@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 const ping = new SlashCommandBuilder()
 	.setName("ping")
@@ -11,7 +11,7 @@ module.exports = {
 	data: ping,
 	async execute(interaction) {
 		var p = Ping(interaction.client.ws.ping);
-		const replyEmbed = new MessageEmbed()
+		const replyEmbed = new EmbedBuilder()
             .setColor(0xffbc00)
             .setTitle("HBYC目前的跑速")
             .addFields({ name: "目前延遲", value: `${p}(ms)` })
