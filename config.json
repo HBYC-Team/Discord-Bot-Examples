@@ -4,5 +4,6 @@
 	"dalao": ["<:place_of_worship:997682418918117426>", "<@!542962924897959938><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426>", "<@!475958550699442176><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426>"],
 	"mention": ["<:pingsock:985421847606726656>", "<:pingsock:985421847606726656>","???", "幹嘛", "吵死了", "ping我幹嘛", "有事快說", "ping我沒辦法使用任何指令喔，請用`/help`", "到底喔", "我現在很忙，稍等x^x^n秒後再來找我:)", "又怎樣", "我不在", "你好", "hi", "嗨", "你好，我是HBYC", "蛤", "又怎麼了"],
 	"lanDino": ["你才爛你全家都爛", "你才爛", "<@!581653506641887265> 的確很爛OUOb", "蛤", "他真的很爛"],
-	"presence": ["你", "Spotify", "Roblox", "Sublime Text", "Vim", "Minecraft", "/help", "試試看/help", "osu!", "bash", "你好，我是HBYC", "爛bot", "Junior HiZollo"]
+	"presence": ["你", "Spotify", "Roblox", "Sublime Text", "Vim", "Minecraft", "/help", "試試看/help", "osu!", "bash", "你好，我是HBYC", "爛bot", "Junior HiZollo"],
+	"selectPrefix": ["我的決定是", "我選", " 這個好了", "我覺得是", " 這個!", " 我選這個:)"]
 }
