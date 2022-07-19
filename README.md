@@ -1,5 +1,5 @@
 # HBYC
-![license](https://img.shields.io/github/license/dragonyc1002/HBYC) <?style=for-the-badge>
+![license](https://img.shields.io/github/license/dragonyc1002/HBYC) <!--?style=for-the-badge-->
 ![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC) 
 ![Discord](https://img.shields.io/discord/977204156043509780)
 [![EMU900!!!](./public/images/banner.jpeg)](https://reurl.cc/GxQqdy)
