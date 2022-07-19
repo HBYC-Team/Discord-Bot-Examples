@@ -12,6 +12,9 @@ Contract me if you want to be my contributor of this project.
 * Deploy slash command using discord.js v14.
 * Easy Game, Chat commands.
 
+## Auto Configure
+See at [autoConfig](./docs/autoConfig.md) file.
+
 ## Tutorial
 See at [tutorial](./docs/tutorial.md).
 
