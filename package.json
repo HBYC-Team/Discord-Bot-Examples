@@ -63,6 +63,7 @@
     "levn": "^0.4.1",
     "lodash.merge": "^4.6.2",
     "minimatch": "^3.1.2",
+    "moment": "^2.29.4",
     "ms": "^2.1.2",
     "natural-compare": "^1.4.0",
     "once": "^1.4.0",
