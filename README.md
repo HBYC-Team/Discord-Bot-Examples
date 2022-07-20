@@ -11,6 +11,7 @@ Contract me if you want to be my contributor of this project.
 ## What's the feature in this repo?
 * Deploy slash command using discord.js v14.
 * Easy Game, Chat commands.
+* This is a easy example of [@hizollo/games](https://github.com/HiZollo/Games) package too.
 
 ## Auto Configure
 See at [autoConfig](./docs/autoConfig.md) file.
