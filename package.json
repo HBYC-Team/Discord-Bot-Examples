@@ -7,6 +7,7 @@
     "doc": "docs"
   },
   "dependencies": {
+    "@discordjs/rest": "^1.0.0",
     "@hizollo/games": "^2.4.0",
     "@kyometori/djsmusic": "^0.8.5",
     "abbrev": "^1.1.1",
