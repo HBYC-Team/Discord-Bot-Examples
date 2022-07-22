@@ -5,7 +5,7 @@ const avatar = new SlashCommandBuilder()
 	.setName("avatar")
 	.setDescription("取得一個用戶的頭像")
 	.addUserOption(option =>
-		option.setName("用戶")
+		option.setName("用戶名稱")
 		.setDescription("用戶")
 		.setRequired(false)
 	)
@@ -21,7 +21,7 @@ module.exports = {
          		+ new Date().getMinutes() + ":" 
         		+ new Date().getSeconds();
         		
-		const member = interaction.options.getUser("用戶");
+		const member = interaction.options.getUser("用戶名稱");
 
 		if(member === null){
 			const user = interaction.user
