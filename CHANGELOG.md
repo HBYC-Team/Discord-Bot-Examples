@@ -1,7 +1,7 @@
 # HBYC CHANGELOG
 This document is a Changelog of HBYC Discord Bot.
 
-## [0.0.1] - 2022-07-
+## [0.0.1] - 2022-07-22
 
 ### Features
 * Games - BigTwo, 2048, BullsAndCows, FinalCode, FlipTrip, Gomoku.
@@ -29,3 +29,5 @@ This document is a Changelog of HBYC Discord Bot.
 * Added `build.sh` and `build.bat` for [autoConfigure](./docs/autoConfig.md).
 * Added `disclaimer` & `ToS` document.
 * Added tutorial document.
+* Added help document.
+
