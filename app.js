@@ -5,7 +5,7 @@
  *************Version: 0.1.0**************
  ********Release Date: 2022-07-31*********
  *****************************************/
-const { Client, Collection, Intents } = require("discord.js");
+const { Client, Collection, GatewayIntentBits, Partials, InteractionType } = require("discord.js");
 const { createMusicManager } = require("@kyometori/djsmusic");
 const { lanBot, dalao, mention, lanDino } = require("./config.json");
 const fs = require("node:fs");
@@ -14,12 +14,12 @@ const path = require("node:path");
 require("dotenv").config();
 const token = process.env.TOKEN;
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildPresences,GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent], partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction] });
 
 
 client.on("interactionCreate", async interaction => {
 
-	if(!interaction.isCommand()) return;
+	if(!interaction.type === InteractionType.ApplicationCommand) return;
 
 
 	const command = client.commands.get(interaction.commandName);
@@ -38,16 +38,16 @@ client.on('messageCreate', async message => {
   	if (!message.content.startsWith('c!')) return;
 
   	const args = message.content.slice('c!'.length).trim().split(/ +/);
-  	if (args[0] === 'game') {
+  	/*if (args[0] === 'game') {
     	const game = new DjsGameName({
       		source: message, 
-      		/* Other options */
+      		Other options 
     	});
 
     await game.initialize();
     await game.start();
     await game.conclude();
-  	}
+  	}*/
   
 });
 
