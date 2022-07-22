@@ -10,6 +10,7 @@ const report = new SlashCommandBuilder()
 			.setRequired(true)
 	)
 
+
 module.exports = {
 	data: report,
 

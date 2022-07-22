@@ -30,6 +30,7 @@ const help = new SlashCommandBuilder()
 		)
 	);*/
 
+
 module.exports = {
 	data: help,
 
@@ -41,7 +42,7 @@ module.exports = {
          		+ new Date().getMinutes() + ":" 
         		+ new Date().getSeconds();
 
-        await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡：）\n`)
+        await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡：）\nhttps://reurl.cc/bE4R6y`)
         /*const cmdName = interaction.options.getString("指令名稱");
 
         if(cmdName === "2048"){

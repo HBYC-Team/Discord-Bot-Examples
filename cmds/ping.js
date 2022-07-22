@@ -7,6 +7,7 @@ const ping = new SlashCommandBuilder()
 
 const Ping = Math.round;
 
+
 module.exports = {
 	data: ping,
 	async execute(interaction) {

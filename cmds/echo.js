@@ -8,6 +8,7 @@ const echo = new SlashCommandBuilder()
 			.setDescription("要讓機器人重複的話")
 			.setRequired(true)
 	)
+	
 
 module.exports = {
 	data: echo,

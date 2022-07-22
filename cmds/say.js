@@ -8,7 +8,6 @@ const say = new SlashCommandBuilder()
 			.setDescription("要發送的訊息內容")
 			.setRequired(true));
 
-
 module.exports = {
 	data: say,
 	async execute(interaction) {

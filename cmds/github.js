@@ -5,6 +5,7 @@ const github = new SlashCommandBuilder()
 	.setName("github")
 	.setDescription("取得HBYC原始碼的網址")
 
+
 module.exports = {
 	data: github,
 
@@ -20,8 +21,8 @@ module.exports = {
             .setColor(0x000000)
             .setTitle("HBYC的原始碼連結")
             .addFields(
-                { name: "目前版本", value: "https://github.com/dragonyc1002/HBYC", inline: true },
-                { name: "舊版本", value: "https://github.com/dragonyc1002/HBYC-old", inline: false }
+                { name: "目前版本", value: "https://reurl.cc/vW31De", inline: true },
+                { name: "舊版本", value: "https://reurl.cc/O47q13", inline: false }
             )
             .setThumbnail(interaction.client.user.displayAvatarURL())
             .setTimestamp()

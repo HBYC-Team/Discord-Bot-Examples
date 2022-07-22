@@ -30,6 +30,7 @@ const select = new SlashCommandBuilder()
 		.setRequired(false)
 	)
 
+
 module.exports = {
 	data: select,
 
