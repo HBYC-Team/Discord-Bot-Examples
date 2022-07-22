@@ -3,9 +3,10 @@ const path = require("node:path");
 
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const { clientId } = require("./config.json");
 
 require("dotenv").config();
+
+const clientId = process.env.clientId;
 const token = process.env.TOKEN;
 
 const commands = [];
