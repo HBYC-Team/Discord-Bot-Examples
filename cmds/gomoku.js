@@ -3,14 +3,14 @@ const { DjsGomoku } = require("@hizollo/games");
 
 const gomoku = new SlashCommandBuilder()
 	.setName("gomoku")
-	.setDescription("Start a gomoku Game.")
+	.setDescription("開啟一場五子棋遊戲")
 	.addUserOption(option => 
 		option.setName("p2")
-			.setDescription("Player 2")
+			.setDescription("玩家2")
 			.setRequired(true))
 	.addUserOption(option => 
 		option.setName("p3")
-		.setDescription("Player3")
+		.setDescription("玩家3")
 		.setRequired(false))
 
 

@@ -45,6 +45,7 @@ module.exports = {
 		await game.start();
 		await game.conclude();
 
+
 		console.log(`>bigtwo ${p1.tag} ${p2.tag} ${p3.tag} ${p4.tag}`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);

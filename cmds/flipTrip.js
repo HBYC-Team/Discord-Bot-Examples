@@ -3,11 +3,12 @@ const { DjsFlipTrip } = require("@hizollo/games");
 
 const FlipTrip = new SlashCommandBuilder()
 	.setName("fliptrip")
-	.setDescription("Start a flip trip game.")
+	.setDescription("開啟一場Flip trip遊戲")
 	.addIntegerOption(option =>
-		option.setName("number")
-		.setDescription("The boardsize you want.(1~10)")
-		.setRequired(true))
+		option.setName("棋盤數")
+		.setDescription("棋盤數(1~10，1最簡單，10最困難)")
+		.setRequired(true)
+	)
 
 module.exports = {
 	data: FlipTrip,
@@ -20,7 +21,7 @@ module.exports = {
          		+ new Date().getMinutes() + ":" 
         		+ new Date().getSeconds();
 		
-		const size = interaction.options.getInteger("number");
+		const size = interaction.options.getInteger("棋盤數");
 		const game = new DjsFlipTrip({
 			source: interaction,
 			players: [interaction.user],

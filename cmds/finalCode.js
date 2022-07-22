@@ -3,22 +3,22 @@ const { DjsFinalCode } = require('@hizollo/games');
 
 const finalCode = new SlashCommandBuilder()
 	.setName("finalcode")
-	.setDescription("start a finalcode game")
+	.setDescription("開啟一場終極密碼的遊戲")
 	.addUserOption(option => 
 		option.setName("p2")
-		.setDescription("Player2")
+		.setDescription("玩家2")
 		.setRequired(false))
 	.addUserOption(option => 
 		option.setName("p3")
-		.setDescription("Player3")
+		.setDescription("玩家3")
 		.setRequired(false))
 	.addUserOption(option => 
 		option.setName("p4")
-		.setDescription("Player4")
+		.setDescription("玩家4")
 		.setRequired(false))
 	.addUserOption(option => 
 		option.setName("p5")
-		.setDescription("Player5")
+		.setDescription("玩家5")
 		.setRequired(false))
 
 module.exports = {

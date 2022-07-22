@@ -3,14 +3,14 @@ const { DjsBullsAndCows } = require('@hizollo/games');
 
 const BullsAndCows = new SlashCommandBuilder()
 	.setName("bullsandcows")
-	.setDescription("bullsandcows game.")
+	.setDescription("開啟一場猜AB遊戲")
 	.addStringOption(option =>
-		option.setName("mode")
-		.setDescription("The difficulty of the game.")
+		option.setName("難度")
+		.setDescription("遊戲難度")
 		.setRequired(true)
 		.addChoices(
-			{ name: "Easy", value: 'Easy mode' },
-			{ name: "Hard", value: 'Hard mode' },
+			{ name: "簡單", value: '簡單模式' },
+			{ name: "困難", value: '困難模式' },
 		));
 
 module.exports = {
@@ -25,9 +25,9 @@ module.exports = {
         		+ new Date().getSeconds();
 		
 		const user = interaction.user;
-		const mode = interaction.options.getString("mode");
+		const mode = interaction.options.getString("難度");
 
-		if(mode === "Easy") {
+		if(mode === "簡單") {
 			const game = new DjsBullsAndCows({
 				source: interaction,
 				players: [user],

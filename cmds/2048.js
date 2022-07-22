@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { DjsTofe } = require('@hizollo/games');
 
-
 const tofe = new SlashCommandBuilder()
 	.setName("2048")
 	.setDescription("開啟一場2048遊戲")
