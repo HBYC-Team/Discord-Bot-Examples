@@ -27,6 +27,7 @@ module.exports = {
         		+ new Date().getSeconds();
         		
 		const mode = interaction.options.getString("難度");
+		
 		if(mode === "簡單") {
 			const user = interaction.user;
 			const game = new DjsTofe({
