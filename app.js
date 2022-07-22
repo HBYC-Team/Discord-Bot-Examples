@@ -3,7 +3,7 @@
  **********Author: dragonyc1002***********
  **********License: BSD 3-Clause**********
  *************Version: 0.1.0**************
- ********Release Date: 2022-07-31*********
+ ********Release Date: 2022-07-22*********
  *****************************************/
 const { Client, Collection, GatewayIntentBits, Partials, InteractionType } = require("discord.js");
 const { createMusicManager } = require("@kyometori/djsmusic");
