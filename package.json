@@ -1,7 +1,7 @@
 {
   "name": "hbyc",
   "version": "0.1.0",
-  "description": "A simple discord.js bot using v14.",
+  "description": "A simple discord.js v14 bot.",
   "main": "app.js",
   "directories": {
     "doc": "docs"
