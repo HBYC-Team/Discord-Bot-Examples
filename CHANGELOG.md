@@ -37,6 +37,7 @@ This document is a Changelog of HBYC Discord Bot.
 ### Features
 * Added batch file for [autoConfigure](./docs/autoConfig.md).
 * Added `tos` command.
+* Added npm scripts.
 
 ### Changed
 * Changed game language to Chinese.
