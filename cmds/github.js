@@ -1,13 +1,13 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder } = require("discord.js");
 
-const github = new SlashCommandBuilder()
+const githubData = new SlashCommandBuilder()
 	.setName("github")
 	.setDescription("取得HBYC原始碼的網址")
 
 
 module.exports = {
-	data: github,
+	data: githubData,
 
 	async execute(interaction){
         let datetime = new Date().getFullYear() + "-" 
@@ -26,6 +26,7 @@ module.exports = {
             )
             .setThumbnail(interaction.client.user.displayAvatarURL())
             .setTimestamp()
+            
         await interaction.reply({ embeds: [githubEmbed] });
 
         console.log(`>github`);
