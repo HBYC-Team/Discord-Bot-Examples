@@ -7,3 +7,5 @@ tsconfig.json
 cmds/announcement.js
 cmds/presence.js
 cmds/thinking.js
+cmds/join.js
+events/messageCreate.js
