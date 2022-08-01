@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const echo = new SlashCommandBuilder()
+const echoData = new SlashCommandBuilder()
 	.setName("echo")
 	.setDescription("讓HBYC重複一句話")
 	.addStringOption(option => 
@@ -11,7 +11,7 @@ const echo = new SlashCommandBuilder()
 	
 
 module.exports = {
-	data: echo,
+	data: echoData,
 
 	async execute(interaction) {
 		let datetime = new Date().getFullYear() + "-" 
