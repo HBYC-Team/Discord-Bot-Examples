@@ -51,7 +51,7 @@ module.exports = {
 		let prefix = Math.floor(Math.random()*selectPrefix.length);
 		let replyPrefix = selectPrefix[prefix];
 
-		if(c5 === null){
+		if(c5 === null && c4 != null){
 			const choices = [c1, c2, c3, c4];
 			let Random = Math.floor(Math.random()*choices.length);
 			let decision = choices[Random];
@@ -62,7 +62,7 @@ module.exports = {
 				await interaction.reply(`${decision} ${replyPrefix}`);
 			};
 
-		} else if(c4 === null){
+		} else if(c4 === null && c3 != null){
 			const choices = [c1, c2, c3];
 			let Random = Math.floor(Math.random()*choices.length);
 			let decision = choices[Random];
@@ -72,7 +72,7 @@ module.exports = {
 				await interaction.reply(`${decision} ${replyPrefix}`);
 			};
 
-		} else if(c3 === null){
+		} else if(c3 === null && c4 === null && c5 === null){
 			const choices = [c1, c2];
 			let Random = Math.floor(Math.random()*choices.length);
 			let decision = choices[Random];

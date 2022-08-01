@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder } = require("discord.js");
 
-const help = new SlashCommandBuilder()
+const helpData = new SlashCommandBuilder()
 	.setName("help")
 	.setDescription("取得協助文件")
 /*	.addStringOption(option =>
@@ -32,7 +32,7 @@ const help = new SlashCommandBuilder()
 
 
 module.exports = {
-	data: help,
+	data: helpData,
 
 	async execute(interaction){
 		let datetime = new Date().getFullYear() + "-" 

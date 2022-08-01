@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const say = new SlashCommandBuilder()
+const sayData = new SlashCommandBuilder()
 	.setName("say")
 	.setDescription("讓HBYC發送一則訊息")
 	.addStringOption(option => 
@@ -9,7 +9,8 @@ const say = new SlashCommandBuilder()
 			.setRequired(true));
 
 module.exports = {
-	data: say,
+	data: sayData,
+	
 	async execute(interaction) {
 		let datetime = new Date().getFullYear() + "-" 
         	 	+ (new Date().getMonth()+1) + "-" 

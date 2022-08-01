@@ -1,13 +1,13 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder } = require("discord.js");
 
-const dev = new SlashCommandBuilder()
+const devData = new SlashCommandBuilder()
 	.setName("dev")
 	.setDescription("有關創作者的資訊")
 
 
 module.exports = {
-	data: dev,
+	data: devData,
 
 	async execute(interaction){
 		let datetime = new Date().getFullYear() + "-" 

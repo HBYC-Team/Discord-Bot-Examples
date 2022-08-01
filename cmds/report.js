@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder } = require("discord.js");
 
-const report = new SlashCommandBuilder()
+const reportData = new SlashCommandBuilder()
 	.setName("report")
 	.setDescription("回報錯誤或建議給作者")
 	.addStringOption(option => 
@@ -12,7 +12,7 @@ const report = new SlashCommandBuilder()
 
 
 module.exports = {
-	data: report,
+	data: reportData,
 
 	async execute(interaction) {
 		let currentdate = new Date(); 
@@ -24,6 +24,7 @@ module.exports = {
                 + currentdate.getSeconds();
                 
 		const c = interaction.options.getString("內容");
+
 		const replyEmbed = new EmbedBuilder()
 			.setColor(0x4b56a8)
 			.setTitle("用戶回報")
@@ -38,6 +39,7 @@ module.exports = {
 			.setFooter({ text: `你的訊息已經回報至後台`, iconURL: interaction.client.user.avatarURL() });
 
 		await interaction.reply({ embeds: [replyEmbed] });
+		
 		console.log("######## User Report ########");
 		console.log(`From ${interaction.guild.name}`);
 		console.log(`By ${interaction.user.tag}`);
