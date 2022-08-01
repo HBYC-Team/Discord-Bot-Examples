@@ -1,8 +1,9 @@
 {
-	"lanBot": ["QAQ", "QAQ", "QAQ", "QAQ", "QAQ", "哈哈哈肯定在說隔壁棚的 <@!584677291318312963> 哈哈哈爛bot", "仔細想想，是不是你比較爛?", "我好心免費幫你服務你說我爛？？", "我不爛...是你爛:)", "哈哈肯定不是在說我"],
+	"lanBot": ["QAQ", "QAQ", "QAQ", "QAQ", "QAQ", "肯定在說隔壁的 <@!584677291318312963> 哈哈哈爛bot", "仔細想想，是不是你比較爛?", "我好心免費幫你服務你說我爛？？", "我不爛...是你爛:)", "肯定不是在說我w"],
 	"dalao": ["<:place_of_worship:997682418918117426>", "<@!542962924897959938><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426>", "<@!475958550699442176><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426><:place_of_worship:997682418918117426>"],
-	"mention": ["<:pingsock:985421847606726656>", "<:pingsock:985421847606726656>","???", "幹嘛", "吵死了", "ping我幹嘛", "有事快說", "ping我沒辦法使用任何指令喔，請用`/help`", "到底喔", "我現在很忙，稍等x^x^n秒後再來找我:)", "又怎樣", "我不在", "你好", "hi", "嗨", "你好，我是HBYC", "蛤", "又怎麼了"],
+	"mention": ["<:pingsock:985421847606726656>", "<:pingsock:985421847606726656>","???", "幹嘛", "吵死了", "ping我幹嘛", "有事快說", "ping我沒辦法使用任何指令喔，請用`/help`", "到底喔", "我現在很忙，稍等∞秒後再來找我呦:)", "又怎樣", "我不在", "你好", "hi", "嗨", "你好，我是HBYC", "蛤", "又怎麼了"],
 	"lanDino": ["你才爛你全家都爛", "你才爛", "<@!581653506641887265> 的確很爛OUOb", "蛤", "他真的很爛"],
-	"presence": ["你", "diep.io", "Spotify", "Roblox", "Sublime Text", "Vim", "Minecraft", "/help", "試試看/help", "osu!", "bash", "你好，我是HBYC", "爛bot", "Junior HiZollo"],
-	"selectPrefix": ["我的決定是", "我選", " 這個好了", "我覺得是", " 這個!", " 我選這個:)"]
+	"presence": ["你", "diep.io", "Roblox", "Minecraft", "/help", "試試看/help", "osu!", "你好，我是HBYC", "https://github.com/dragonyc1002/HBYC", "Apex Legends"],
+	"selectPrefix": ["我的決定是", "我選", " 這個好了", "我覺得是", " 這個!", " 我選這個:)"],
+	"www": ["www", "www", "www", "www", "www", "www", "www", "www", "wwwwww", "w", "w", "w", "w", "w", "w", "w", "w", "w", "wWwwwwwWWWMWMwwwwwwMWww"]
 }
