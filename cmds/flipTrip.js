@@ -1,7 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { DjsFlipTrip } = require("@hizollo/games");
+const { flipTrip } = require("./strings.json");
 
-const FlipTrip = new SlashCommandBuilder()
+const flipTripData = new SlashCommandBuilder()
 	.setName("fliptrip")
 	.setDescription("開啟一場Flip trip遊戲")
 	.addIntegerOption(option =>
@@ -10,8 +11,9 @@ const FlipTrip = new SlashCommandBuilder()
 		.setRequired(true)
 	)
 
+
 module.exports = {
-	data: FlipTrip,
+	data: flipTripData,
 
 	async execute(interaction){
 		let datetime = new Date().getFullYear() + "-" 
@@ -22,10 +24,12 @@ module.exports = {
         		+ new Date().getSeconds();
 		
 		const size = interaction.options.getInteger("棋盤數");
+
 		const game = new DjsFlipTrip({
 			source: interaction,
 			players: [interaction.user],
-			boardSize: size
+			boardSize: size,
+			strings: flipTrip
 		});
 
 		await game.initialize();

@@ -1,7 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { DjsFinalCode } = require('@hizollo/games');
+const { finalCode }= require("./strings.json");
 
-const finalCode = new SlashCommandBuilder()
+const finalCodeData = new SlashCommandBuilder()
 	.setName("finalcode")
 	.setDescription("開啟一場終極密碼的遊戲")
 	.addUserOption(option => 
@@ -19,10 +20,12 @@ const finalCode = new SlashCommandBuilder()
 	.addUserOption(option => 
 		option.setName("p5")
 		.setDescription("玩家5")
-		.setRequired(false))
+		.setRequired(false)
+	)
+
 
 module.exports = {
-	data: finalCode,
+	data: finalCodeData,
 
 	async execute(interaction) {
 		let datetime = new Date().getFullYear() + "-" 
@@ -32,15 +35,31 @@ module.exports = {
          		+ new Date().getMinutes() + ":" 
         		+ new Date().getSeconds();
 		
+
 		const user = interaction.user;
 		const p2 = interaction.options.getUser("p2");
 		const p3 = interaction.options.getUser("p3");
 		const p4 = interaction.options.getUser("p4");
 		const p5 = interaction.options.getUser("p5");
+	
+		const players = [user, p2];
+
+		if(p3 !== null){
+			players.push(p3);
+		}
+
+		if(p4 !== null){
+			players.push(p4);
+		}
+
+		if(p5 !== null){
+			players.push(p5);
+		}
 
 		const game = new DjsFinalCode({
 			source: interaction,
-			players: [user, p2, p3, p4, p5]
+			players: players,
+			strings: finalCode
 		});
 
 		await game.initialize();
