@@ -1,13 +1,10 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { DjsBigTwo } = require("@hizollo/games");
+const { bigTwo } = require("./strings.json");
 
-const BigTwo = new SlashCommandBuilder()
+const bigTwoData = new SlashCommandBuilder()
 	.setName("bigtwo")
 	.setDescription("開啟一場大老二撲克牌遊戲")
-	.addUserOption(option =>
-		option.setName("p1")
-			.setDescription("玩家1")
-			.setRequired(true))
 	.addUserOption(option =>
 		option.setName("p2")
 		    .setDescription("玩家2")
@@ -22,7 +19,8 @@ const BigTwo = new SlashCommandBuilder()
 			.setRequired(true))
 
 module.exports = {
-	data: BigTwo,
+	data: bigTwoData,
+	
 	async execute(interaction) {
 		let datetime = new Date().getFullYear() + "-" 
         	 	+ (new Date().getMonth()+1) + "-" 
@@ -31,14 +29,15 @@ module.exports = {
          		+ new Date().getMinutes() + ":" 
         		+ new Date().getSeconds();
 
-		const p1 = interaction.options.getUser("p1");
+		const p1 = interaction.user;
 		const p2 = interaction.options.getUser("p2");
 		const p3 = interaction.options.getUser("p3");
 		const p4 = interaction.options.getUser("p4");
 
 		const game = new DjsBigTwo({
   			source: interaction, 
-  			players: [p1, p2, p3, p4] 
+  			players: [p1, p2, p3, p4],
+  			strings: bigTwo 
 		});
 
 		await game.initialize();

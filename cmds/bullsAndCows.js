@@ -1,7 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { DjsBullsAndCows } = require('@hizollo/games');
+const { bullsAndCows } = require("./strings.json")
 
-const BullsAndCows = new SlashCommandBuilder()
+const bullsAndCowsData = new SlashCommandBuilder()
 	.setName("bullsandcows")
 	.setDescription("開啟一場猜AB遊戲")
 	.addStringOption(option =>
@@ -14,7 +15,7 @@ const BullsAndCows = new SlashCommandBuilder()
 		));
 
 module.exports = {
-	data: BullsAndCows,
+	data: bullsAndCowsData,
 
 	async execute(interaction) {
 		let datetime = new Date().getFullYear() + "-" 
@@ -25,31 +26,28 @@ module.exports = {
         		+ new Date().getSeconds();
 		
 		const user = interaction.user;
-		const mode = interaction.options.getString("難度");
+		
+		const hardMode = (() => {
+			if(interaction.options.getString("難度") === "簡單模式"){
+				return false;
+			} else {
+				return true;
+			}
+		})();
 
-		if(mode === "簡單") {
-			const game = new DjsBullsAndCows({
-				source: interaction,
-				players: [user],
+		const game = new DjsBullsAndCows({
+			source: interaction,
+			players: [interaction.user],
+			hardMode: hardMode,
+			strings: bullsAndCows
+		});
 
-			});
+		await game.initialize();
+		await game.start();
+		await game.conclude();
 
-			await game.initialize();
-			await game.start();
-			await game.conclude();
-		} else {
-			const game = new DjsBullsAndCows({
-				source: interaction,
-				players: [user],
-				hardmode: true
-			});
 
-			await game.initialize();
-			await game.start();
-			await game.conclude();
-		};
-
-		console.log(`>bullsandcows ${mode}`);
+		console.log(`>bullsandcows hardMode: ${hardMode}`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
