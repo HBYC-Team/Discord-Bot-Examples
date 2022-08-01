@@ -2,19 +2,19 @@
  ************HBYC Discord Bot*************
  **********Author: dragonyc1002***********
  **********License: BSD 3-Clause**********
- *************Version: 0.1.0**************
- ********Release Date: 2022-07-22*********
+ *************Version: 0.2.0**************
+ ********Release Date: 2022-08-01*********
  *****************************************/
 const { Client, Collection, GatewayIntentBits, Partials, InteractionType } = require("discord.js");
 const { createMusicManager } = require("@kyometori/djsmusic");
-const { lanBot, dalao, mention, lanDino } = require("./config.json");
-const fs = require("node:fs");
-const path = require("node:path");
+const { lanBot, dalao, mention, lanDino, www } = require("./config.json");
+const fs = require("fs");
+const path = require("path");
 
 require("dotenv").config();
 const token = process.env.TOKEN;
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildPresences,GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent], partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildVoiceStates,GatewayIntentBits.GuildPresences,GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent], partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction] });
 
 
 client.on("interactionCreate", async interaction => {
@@ -34,20 +34,62 @@ client.on("interactionCreate", async interaction => {
 	}
 });
 
+
 client.on('messageCreate', async message => {
-  	if (!message.content.startsWith('c!')) return;
+	if(message.author.bot) return;
 
-  	const args = message.content.slice('c!'.length).trim().split(/ +/);
-  	/*if (args[0] === 'game') {
-    	const game = new DjsGameName({
-      		source: message, 
-      		Other options 
-    	});
+	if(message.content === "爛bot" || message.content === "lan bot" || message.content === "爛Bot" || message.content === "爛BOT"){
+		let replies = Math.floor(Math.random()*lanBot.length);
+		let replyMsg = lanBot[replies];
+		await message.channel.send(replyMsg);
+		console.log("爛bot");
+		console.log("------");
+	};
 
-    await game.initialize();
-    await game.start();
-    await game.conclude();
-  	}*/
+	if(message.content === "x04bot"){
+		message.channel.send("要罵人之前請先記得切換輸入法呦;)");
+		console.log("x04bot");
+		console.log("------");
+	};
+
+	if(message.content === "大佬" || message.content === "lao" || message.content === "佬"){
+		let replies = Math.floor(Math.random()*dalao.length);
+		let replyMsg = dalao[replies];
+		await message.channel.send(replyMsg);
+		console.log("dalao");
+		console.log("------");
+	};
+
+	if(message.mentions.has(client.user.id)){
+		let replies = Math.floor(Math.random()*mention.length);
+		let replyMsg = mention[replies];
+		await message.channel.send(replyMsg);
+		console.log("Got tag");
+		console.log("------");
+	};
+
+	if(message.content === "爛恐龍" || message.content === "恐龍很爛"){
+		let replies = Math.floor(Math.random()*lanDino.length);
+		let replyMsg = lanDino[replies];
+		await message.channel.send(replyMsg);
+		console.log("爛恐龍");
+		console.log("------");
+	};
+
+	if(message.content === "w" || message.content === "ww" || message.content === "www" || message.content === "wwww" || message.content === "wwwww" || message.content === "wwwwww"){
+		const replyChoose = ["True", "False", "False"];
+		let replyTrueFalse = replyChoose[Math.floor(Math.random()*replyChoose.length)];
+
+		if(replyTrueFalse == "True"){
+			let replies = Math.floor(Math.random()*www.length);
+			let replyMsg = www[replies];
+			await message.channel.send(replyMsg);
+			console.log("www");
+			console.log("------");
+		} else {
+			return;
+		};
+	};
   
 });
 
@@ -80,39 +122,6 @@ for(const file of eventFiles) {
 
 
 
-/*****Event of messages*****/
-
-client.on("messageCreate", message => {
-	if(message.author.id === client.user.id) return;
-
-	if(message.content === "爛bot" || message.content === "lan bot" || message.content === "爛Bot" || message.content === "爛BOT"){
-		let replies = Math.floor(Math.random()*lanBot.length);
-		let replyMsg = lanBot[replies];
-		message.channel.send(replyMsg);
-	};
-
-	if(message.content === "x04bot"){
-		message.channel.send("要罵人之前請先記得切換輸入法呦;)");
-	};
-
-	if(message.content === "大佬" || message.content === "lao" || message.content === "佬"){
-		let replies = Math.floor(Math.random()*dalao.length);
-		let replyMsg = dalao[replies];
-		message.channel.send(replyMsg);
-	};
-
-	if(message.mentions.has(client.user.id)){
-		let replies = Math.floor(Math.random()*mention.length);
-		let replyMsg = mention[replies];
-		message.channel.send(replyMsg);
-	};
-
-	if(message.content === "爛恐龍" || message.content === "恐龍很爛"){
-		let replies = Math.floor(Math.random()*lanDino.length);
-		let replyMsg = lanDino[replies];
-		message.channel.send(replyMsg);
-	};
-});
 
 
 
