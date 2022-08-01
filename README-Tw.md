@@ -21,11 +21,17 @@ Windows使用者可以直接運行`build.bat` 進行配置。
 Linux, Mac使用者可以直接運行`build.sh` 進行配置。（請記得將運行此script的權限開啟）
 </br>
 
-請記得使用`.env`去填入你的token，並執行
+請記得使用`.env`去填入你的token以及Application ID，並執行
 ```bash
 $ node deploy.js
 ```
 進行斜線指令的部署。
+
+也可以使用npm script進行配置：
+`$ npm run all` - 安裝依賴項、部署斜線指令、執行機器人。
+`$ npm run install` - 安裝依賴項。
+`$ npm run  deploy` - 部署斜線指令。
+`$ npm run start` - 讓機器人上線。
 
 ## 專案包含
 * discord.js v14達成簡易的許多功能
