@@ -6,6 +6,7 @@ See the Introduce at [README.md](../README.md)
 * dev
 * github
 * help
+* tos
 
 ## Chat Commands
 * echo
