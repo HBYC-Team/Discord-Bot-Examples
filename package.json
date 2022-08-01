@@ -171,7 +171,10 @@
     "ytsr": "^3.8.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "all": "npm i && node deploy.js && node app.js",
+    "install": "npm i",
+    "start": "node app.js",
+    "deploy": "node deploy.js"
   },
   "repository": {
     "type": "git",
