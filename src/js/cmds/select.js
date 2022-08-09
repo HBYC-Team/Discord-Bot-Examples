@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { selectPrefix } = require("../config.json");
+const { selectPrefix } = require("../../config.json");
 
 const select = new SlashCommandBuilder()
 	.setName("select")

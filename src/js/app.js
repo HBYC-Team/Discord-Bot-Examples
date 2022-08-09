@@ -7,7 +7,7 @@
  *****************************************/
 const { Client, Collection, GatewayIntentBits, Partials, InteractionType } = require("discord.js");
 const { createMusicManager } = require("@kyometori/djsmusic");
-const { lanBot, dalao, mention, lanDino, www } = require("./config.json");
+const { lanBot, dalao, mention, lanDino, www } = require("../../config.json");
 const fs = require("fs");
 const path = require("path");
 
