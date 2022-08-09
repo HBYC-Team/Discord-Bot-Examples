@@ -11,9 +11,13 @@ Before you start running the file, please remember to put the your token and app
 You can run `npm run` command line to auto configure.
 
 The command you can use:
+
 `$ npm run all` - Install the dependencies, deploys the Application Command and starts the bot.
+
 `$ npm run install` - Install the dependencies.
+
 `$ npm run  deploy` - Deploys the Application Command.
+
 `$ npm run start` - Starts the bot.
 
 ## Windows
