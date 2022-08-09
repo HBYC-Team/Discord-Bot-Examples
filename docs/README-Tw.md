@@ -5,6 +5,8 @@
 [![EMU900!!!](./public/images/banner.jpeg)](https://reurl.cc/GxQqdy)
 一個簡易的Discord機器人，使用discord.js v14編寫。
 
+目前正在新增多種程式語言更新。
+
 ## 如何做一台跟這台一樣的機器人
 自己fork這份專案或抓source code回去。
 </br>

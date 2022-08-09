@@ -12,7 +12,5 @@ src/go/.env
 
 src/python/.env
 
-src/ts/prod/
-src/ts/app.ts
-src/ts/tsconfig.json
+src/ts/
 

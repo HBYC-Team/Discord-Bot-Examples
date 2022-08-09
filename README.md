@@ -3,15 +3,28 @@
 ![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC) 
 ![Discord](https://img.shields.io/discord/977204156043509780)
 [![EMU900!!!](./public/images/banner.jpeg)](https://reurl.cc/GxQqdy)
-A simple Discord Bot that using discord.js v14.
+A simple Discord Bot that using discord.js v14. (Golang, Python is still in testing)
 
 Contract me if you want to be my contributor of this project.
 
+This repo is still in heavy developing.
 
 ## What's the feature in this repo?
-* Deploy slash command using discord.js v14.
+* JavaScript
+```
 * Easy Game, Chat commands.
 * This is a easy example of [@hizollo/games](https://github.com/HiZollo/Games) package too.
+```
+
+* Golang
+```
+Golang part is still in develop.
+```
+
+* Python
+```
+Python part is still in develop.
+```
 
 ## Auto Configure
 See at [autoConfig](./docs/autoConfig.md) file.

@@ -21,7 +21,7 @@ The command you can use:
 `$ npm run start` - Starts the bot.
 
 ## Windows
-You can run [build.bat](../build.bat) to auto configure this bot.
+You can run [build.bat](../configure/build.bat) to auto configure this bot.
 
 The actions you can enter after you start running this batch file:
 ```
@@ -32,7 +32,7 @@ start - Starts the bot.
 ```
 
 ## Linux, Mac
-You can run [build.sh](../build.sh) to auto configure this bot.
+You can run [build.sh](../configure/build.sh) to auto configure this bot.
 
 Argument list:
 ```
