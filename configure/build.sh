@@ -2,6 +2,18 @@
 echo "Please Enter The Language(EN or ZH_TW)"
 read confLang
 
+if [ $1 == "-h" ]
+then
+	echo "The showing language you can enter:"
+	echo "EN / ZH_TW\n"
+	echo "The programming language you can enter:"
+	echo "js / go / python\n"
+	echo "The step you can enter:"
+	echo "js - deploy, install, start"
+	echo "go - install, start"
+	echo "python - install, start"
+
+
 if [ $confLang == "EN" ]
 then
 	echo "Select a Programming Language(js, go or python):"
