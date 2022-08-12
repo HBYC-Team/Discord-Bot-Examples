@@ -1,50 +1,137 @@
 @echo off
 
-SET /P lang="Choose a Language: EN or ZH-Tw"
+SET /P confLang = "Please Enter The Language(EN or ZH_TW)"
 
-if %lang% == "EN" (
-	echo "Actions you can enter:"
-	echo "* install: Install the dependencies."
-	echo "* deploy: Deploy the application(/) command."
-	echo "* start: Start the bot."
-	echo "* all: Install the dependencies, deploy the application(/) command, start the bot."
+if %confLang% == "EN" (
+	SET /P = "Select a Programming Language(js, go or python):"
 
-	SET /P todo="Please Enter an Action.
+	if %codeLang% == "js" (
+		echo "Select a step:"
+		echo "deploy: Deploy the application command."
+		echo "install: Install the dependencies."
+		echo "start: Start the bot."
+		SET /P jsStep
 
-	if %todo% == "install" (
-		echo "Install the dependencies..."
-		npm install
-	) else if %todo% == "start" (
-		echo "Start the bot..."
-		node app.js
-	) else (
-		echo "Please Enter a true argument."
-		return
-	)
+		if %jsStep% == "deploy" (
+			cd ../src/js
+			node deploy.js
 
-) else if %lang% == "ZH-Tw" (
-	echo "請擇一輸入以下動作(不含\"*\")"
-	echo "* install: 安裝依賴項（請先確認已經安裝node.js/npm）"
-	echo "* deploy: 部署斜線指令。"
-	echo "* start: 使機器人上線（請先確認已經填入token）"
-	echo "* all: 執行上述所有動作"
+		) else if %jsStep% == "install" (
+			npm install discord.js@latest && npm install @hizollo/games && npm install @kyometori/djsmusic
+	
+		) else if %jsStep% == "start" (
+			cd ../src/js
+			node app.js
 
-	SET /P todo="請輸入一個動作"
+		) else (
+			echo "Please enter a step in support."
+		)
 
-	if %todo% == "install" (
-		echo "開始執行 安裝依賴項..."
-		npm install
-	) else if %todo% == "start" (
-		echo "開始運行機器人..."
-		node app.js
-	) else if %todo% == "all"(
-		echo "開始執行 所有項目..."
-		npm install && node deploy.js && node app.js
-	) else (
-		echo "請填入正確的動作"
-		return
-	)
-) else (
-	echo "Please enter a true language."
-	return
+	) else if %codeLang% == "go" (
+		echo "Select a step:"
+		echo "install: Install the dependencies."
+		echo "start: Start the bot."
+		SET /P goStep
+
+		if %goStep% == "install" (
+			cd ../src/go
+			go get github.com/bwmarrin/discordgo
+
+		) else if %goStep% == "start" (
+			cd ../src/go
+			echo "Enter your bot token."
+			SET /P token
+			set token=%token%
+			go run main.go -t token
+
+		) else (
+			echo "Please enter a step in support."
+		)
+	
+
+	) else if %codeLang% == "python" (
+		echo "Select a step:"
+		echo "install: Install the dependencies."
+		echo "start: Start the bot."
+		read pyStep
+
+		if %pyStep% == "install" (
+			cd ../src/python
+			python3 -m pip -r requirements.txt
+
+		) else if %pyStep% == "start" (
+			cd ../src/python
+			python3 app.py
+
+		) else (
+			echo "Please enter a step in support."
+		)
+
+) else if %confLang% == "ZH_TW" (
+	echo "請輸入程式語言名稱（js, go 或 python）"
+	SET /P codeLang
+
+	if %codeLang% == "js" (
+		echo "選擇一個步驟："
+		echo "deploy: 部署斜線指令。"
+		echo "install: 安裝依賴項。"
+		echo "start: 啟動機器人。"
+		SET /P jsStep
+
+		if %jsStep% == "deploy" (
+			cd ../src/js
+			node deploy.js
+
+		) else if %jsStep% == "install" ( 
+			npm install discord.js@latest && npm install @hizollo/games && npm install @kyometori/djsmusic
+
+		) else if %jsStep% == "start" (
+			cd ../src/js
+			node app.js
+
+		) else (
+			echo "請輸入一個存在的步驟。"
+		)
+
+	) else if %codeLang% == "go" (
+		echo "選擇一個步驟："
+		echo "install: 安裝依賴項。"
+		echo "start: 啟動機器人。"
+		SET /P goStep
+
+		if %goStep% == "install" (
+			cd ../src/go
+			go get github.com/bwmarrin/discordgo
+
+		) else if %goStep% == "start" (
+			cd ../src/go
+			echo "請輸入你的機器人token"
+			SET /P token
+			set token=%token%
+			go run main.go -t token
+
+		) else (
+			echo "請輸入一個存在的步驟。"
+		)
+
+	) else if %codeLang% == "python" (
+		echo "選擇一個步驟："
+		echo "install: 安裝依賴項。"
+		echo "start: 啟動機器人。"
+		SET /P pyStep
+
+		if %pyStep% == "install" (
+			cd ../src/python
+			python3 -m pip -r requirements.txt
+
+		) else if %pyStep% == "start" (
+			cd ../src/python
+			python3 app.py
+
+		) else ( 
+			echo "請輸入一個存在的步驟。"
+		)
+	
+) else ( 
+	echo "Please give a Language in support."
 )
