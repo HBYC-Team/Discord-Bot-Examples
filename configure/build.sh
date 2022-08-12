@@ -12,7 +12,7 @@ then
 	echo "js - deploy, install, start"
 	echo "go - install, start"
 	echo "python - install, start"
-
+fi
 
 if [ $confLang == "EN" ]
 then
