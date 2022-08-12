@@ -1,16 +1,22 @@
-# autoConfigure docs
+# autoConfigure document
 This is the documentation of autoConfigure file.
 
-Before you start running the file, please remember to put the your token and application id in the `.env` file.(See at [tutorial](./tutorial.md)).
+Before you start running the file, please remember to setup the environment, see the guide [here](./guide/Setup.md).
+
 
 # You can auto configure this bot using these step
-1. Use npm scripts.
-2. Use the batch file or shell script.
+1. Use npm scripts(for JavaScript only).
 
-## npm
+2. Use Batch or Shell Script file.
+
+## npm (JavaScript Only)
 You can run `npm run` command line to auto configure.
 
-The command you can use:
+Before you start using this, please remember change the dirctory from your terminal to `src/js/`.
+
+After that, you can use the npm script.
+
+Script List:
 
 `$ npm run all` - Install the dependencies, deploys the Application Command and starts the bot.
 
@@ -20,27 +26,24 @@ The command you can use:
 
 `$ npm run start` - Starts the bot.
 
-## Windows
-You can run [build.bat](../configure/build.bat) to auto configure this bot.
 
-The actions you can enter after you start running this batch file:
-```
-deploy - Deploys the Application(/) Command.
-help - Shows the action list.
-install - Install the dependencies.
-start - Starts the bot.
-```
+# Python/Go
+See at the next part of this document.
+
+# Configure Script/Batch
+This part introduces about configure Script/Batch file.
+
+These files can use on ALL Languages Examples. 
+
+
+## Windows
+You can run [build.bat](../configure/build.bat) to auto configure this repo.
+
+If you have any problem, please contract me.
 
 ## Linux, Mac
 You can run [build.sh](../configure/build.sh) to auto configure this bot.
 
-Argument list:
-```
--D, --deploy    Deploys the Application(/) Command.
--H, --help      Shows the argument list.
--I, --install   Install the dependencies.
--S, --start     Starts the bot.
-```
+If you have any problem, use `~/your/path/to/HBYC/configure $ ./build.sh -h`.
 
-## Dev
-You can add anything you want or rename the arguments, just edit the batch or the shell file.
+If the help list isn't help you, please contract me.
