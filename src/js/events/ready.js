@@ -20,8 +20,9 @@ module.exports = {
         console.log(client.user.tag);
         console.log("Logined at", datetime);
         console.log("------------------------");
-
-		client.user.setPresence({ activities: [{ name: "v0.2.0已經發布！" }] });
+        console.log(`Now Services in ${client.guilds.cache.size} guilds`)
+		console.log("------------------------");
+		client.user.setPresence({ activities: [{ name: `在 ${client.guilds.cache.size} 個伺服器中服務` }] });
 		console.log(client.guilds.cache.map(guild => guild.name));
 		console.log(client.guilds.cache.map(guild => guild.id));
 		console.log("------------------------");
