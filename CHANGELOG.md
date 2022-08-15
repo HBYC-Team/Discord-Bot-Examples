@@ -1,5 +1,5 @@
 # HBYC CHANGELOG
-This document is a Changelog of HBYC Discord Bot.
+This document is a Changelog of this Repo.
 
 ## v1.0.0
 * Added Go, Python, TypeScript main file examples.
