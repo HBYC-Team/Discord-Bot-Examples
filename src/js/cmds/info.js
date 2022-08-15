@@ -31,7 +31,7 @@ module.exports = {
 				if(interaction.options.getUser("使用者") === null){
 					return interaction.user;
 				} else {
-					return interaction.options.gerUser("使用者");
+					return interaction.options.getUser("使用者");
 				}
 			})();
 
