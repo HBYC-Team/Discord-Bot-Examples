@@ -1,3 +1,6 @@
+/******Discord Bot Example - Go******
+*********Author: dragonyc1002********
+***********Version: 1.0.0************/
 package main
 
 import (
