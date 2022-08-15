@@ -1,52 +1,58 @@
 # HBYC CHANGELOG
 This document is a Changelog of HBYC Discord Bot.
 
-## [0.1.0] - 2022-07-22
+## v1.0.0
+* Added Go, Python, TypeScript main file examples.
 
-### Features
-* Games - BigTwo, 2048, BullsAndCows, FinalCode, FlipTrip, Gomoku.
-* dev Command.
-* info Command.
-* select Command.
-* github Command.
+* Added Guide.
 
-### Changed
-* repeat => echo.
-* Added pythonk to `thinking` command.
+* Removed `tutorial.md`.
 
-### Fixed
-* Lots of bugs.
+* Rewrite auto-configure files for muiti languages.
 
-### Refactored
-* ping Command(Using Embed now).
-* say, thinking Command(Now the check message will be ephemeral).
+* Bug fixes - `finalCode.js`, `info.js`.
 
-### Removed
-* Music Commands.(This will out in the future version.)
-* Message Commands.
+* Updated link with new repo adress - `github.js`, `help.js`, `ToS.js`. 
 
-#### Others
-* Added `build.sh` for [autoConfigure](./docs/autoConfig.md).
-* Added `disclaimer` & `ToS` document.
-* Added tutorial document.
-* Added help document.
+> Guide document will out in future versions.
 
+> More Examples of Other Languages will out in future versions.
 
-## [0.2.0] - 2022-08-01
-
-### Features
+## v0.2.0
 * Added batch file for [autoConfigure](./docs/autoConfig.md).
+
 * Added `tos` command.
+
 * Added npm scripts.
 
-### Changed
 * Changed game language to Chinese.
 
-### Fixed
 * The bugs of `Gomoku`.
 
-### Refactored
 * The code is being simplified now.
 
-### Others
 * Added `strings.json` of the custom strings.
+
+
+## v0.1.0
+* Added Games - `BigTwo`, `2048`, `BullsAndCows`, `FinalCode`, `FlipTrip`, `Gomoku`.
+
+* Added Commands - `dev`,  `info`,  `select`,  `github`.
+
+* Changed repeat => echo.
+
+* Added pythonk to `thinking` command.
+
+* Fixed Lots of bugs.
+
+* Refactored ping Command(Using Embed now).
+
+* Refactored say, thinking Command(Now the check message will be ephemeral).
+
+* Removed Music Commands.
+
+* Removed Message Commands.
+
+* Added `build.sh` for [autoConfigure](./docs/autoConfig.md).
+
+* Added `disclaimer`, `ToS`, `help`, `tutorial` documents.
