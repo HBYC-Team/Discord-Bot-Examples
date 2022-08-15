@@ -48,42 +48,34 @@ module.exports = {
 		const c4 = interaction.options.getString("選項4");
 		const c5 = interaction.options.getString("選項5");
 
-		let prefix = Math.floor(Math.random()*selectPrefix.length);
-		let replyPrefix = selectPrefix[prefix];
+		const choices = [c1, c2];
 
-		if(c5 === null && c4 != null){
-			const choices = [c1, c2, c3, c4];
-			let Random = Math.floor(Math.random()*choices.length);
-			let decision = choices[Random];
-
-			if(replyPrefix === "我的決定是" || replyPrefix === "我選" || replyPrefix ==="我覺得是"){
-				await interaction.reply(`${replyPrefix} ${decision}`);
-			} else {
-				await interaction.reply(`${decision} ${replyPrefix}`);
-			};
-
-		} else if(c4 === null && c3 != null){
-			const choices = [c1, c2, c3];
-			let Random = Math.floor(Math.random()*choices.length);
-			let decision = choices[Random];
-			if(replyPrefix === "我的決定是 " || replyPrefix === "我選 " || replyPrefix ==="我覺得是 "){
-				await interaction.reply(`${replyPrefix} ${decision}`);
-			} else {
-				await interaction.reply(`${decision} ${replyPrefix}`);
-			};
-
-		} else if(c3 === null && c4 === null && c5 === null){
-			const choices = [c1, c2];
-			let Random = Math.floor(Math.random()*choices.length);
-			let decision = choices[Random];
-			if(replyPrefix === "我的決定是 " || replyPrefix === "我選 " || replyPrefix ==="我覺得是 "){
-				await interaction.reply(`${replyPrefix} ${decision}`);
-			} else {
-				await interaction.reply(`${decision} ${replyPrefix}`);
-			};
+		if(c3 !== null){
+			choices.push(c3);
 		};
 
-		console.log(`>select ${c1} ${c2} ${c3}`);
+		if(c4 !== null){
+			choices.push(c4);
+		};
+
+		if(c5 !== null){
+			choices.push(c5);
+		};
+
+
+		let prefix = Math.floor(Math.random()*selectPrefix.length);
+		let replyPrefix = selectPrefix[prefix];
+			
+		let Random = Math.floor(Math.random()*choices.length);
+		let decision = choices[Random];
+
+		if(replyPrefix === "我的決定是" || replyPrefix === "我選" || replyPrefix ==="我覺得是"){
+			await interaction.reply(`${replyPrefix} ${decision}`);
+		} else {
+			await interaction.reply(`${decision} ${replyPrefix}`);
+		};
+
+		console.log(`>select ${choices}`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
