@@ -42,7 +42,11 @@ module.exports = {
 		const p4 = interaction.options.getUser("p4");
 		const p5 = interaction.options.getUser("p5");
 	
-		const players = [user, p2];
+		const players = [user];
+
+		if(p2 !== null){
+			players.push(p2);
+		}
 
 		if(p3 !== null){
 			players.push(p3);
