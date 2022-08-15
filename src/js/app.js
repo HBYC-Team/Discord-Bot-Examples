@@ -2,8 +2,8 @@
  ************HBYC Discord Bot*************
  **********Author: dragonyc1002***********
  **********License: BSD 3-Clause**********
- *************Version: 0.2.0**************
- ********Release Date: 2022-08-01*********
+ *************Version: 0.1.0*************
+ ********Release Date: 2022-08-15*********
  *****************************************/
 const { Client, Collection, GatewayIntentBits, Partials, InteractionType } = require("discord.js");
 const { createMusicManager } = require("@kyometori/djsmusic");
@@ -20,7 +20,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 client.on("interactionCreate", async interaction => {
 
 	if(!interaction.type === InteractionType.ApplicationCommand) return;
-
+	
+	//if(interaction.user.id === banList)
 
 	const command = client.commands.get(interaction.commandName);
 
@@ -30,10 +31,36 @@ client.on("interactionCreate", async interaction => {
 		await command.execute(interaction);
 	} catch(error) {
 		console.error(error);
-	 	await interaction.reply({ content: "There was an error while executing this command!", ephemeral: true});
+	 	await interaction.reply("指令出現問題，可能是參數錯誤或其他原因導致");
 	}
 });
 
+
+client.commands = new Collection();
+
+const commandsPath = path.join(__dirname, 'cmds');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const filePath = path.join(commandsPath, file);
+	const command = require(filePath);
+	client.commands.set(command.data.name, command);
+}
+
+const eventsPath = path.join(__dirname, "events");
+const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith(".js"));
+
+
+for(const file of eventFiles) {
+	const filePath = path.join(eventsPath, file);
+	const event = require(filePath);
+
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args));
+	}
+}
 
 client.on('messageCreate', async message => {
 	if(message.author.bot) return;
@@ -47,7 +74,7 @@ client.on('messageCreate', async message => {
 	};
 
 	if(message.content === "x04bot"){
-		message.channel.send("要罵人之前請先記得切換輸入法呦;)");
+		await message.channel.send("要罵人之前請先記得切換輸入法呦;)");
 		console.log("x04bot");
 		console.log("------");
 	};
@@ -92,35 +119,6 @@ client.on('messageCreate', async message => {
 	};
   
 });
-
-
-client.commands = new Collection();
-
-const commandsPath = path.join(__dirname, 'cmds');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
-	const command = require(filePath);
-	client.commands.set(command.data.name, command);
-}
-
-const eventsPath = path.join(__dirname, "events");
-const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith(".js"));
-
-
-for(const file of eventFiles) {
-	const filePath = path.join(eventsPath, file);
-	const event = require(filePath);
-
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	} else {
-		client.on(event.name, (...args) => event.execute(...args));
-	}
-}
-
-
 
 
 
