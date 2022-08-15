@@ -1,6 +1,8 @@
 # Command List of this Bot
 See the Introduce at [README.md](../README.md)
 
+# JavaScript
+
 ## Main Commands
 * announcement
 * dev
@@ -28,3 +30,7 @@ See the Introduce at [README.md](../README.md)
 * finalcode
 * fliptrip
 * gomoku
+
+# Go
+
+# Python
