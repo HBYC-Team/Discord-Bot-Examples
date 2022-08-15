@@ -24,7 +24,7 @@ module.exports = {
 				{ name: "團隊成員", value: "恐龍#2549" },
 				{ name: "程式設計", value: "恐龍#2549" },
 				{ name: "網管控制", value: "恐龍#2549" },
-				{ name: "美術設計", value: "恐龍#2549" }
+				{ name: "美術設計", value: "恐龍#2549, 魔方玩家Rubik's Cube Player#0956" }
 
 			)
 			.setTimestamp()
