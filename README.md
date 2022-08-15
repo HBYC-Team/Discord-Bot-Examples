@@ -3,7 +3,10 @@
 ![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC) 
 ![Discord](https://img.shields.io/discord/977204156043509780)
 [![EMU900!!!](./public/images/banner.jpeg)](https://reurl.cc/GxQqdy)
-A simple Discord Bot that using discord.js v14. (Golang, Python is still in testing)
+
+A simple Discord Bot that using discord.js v14.
+
+And this repo has muiti-language example.
 
 Contract me if you want to be my contributor of this project.
 
@@ -18,19 +21,27 @@ This repo is still in heavy developing.
 
 * Golang
 ```
-Golang part is still in develop.
+Now, the bot can online, and added some events, others is still in developing.
 ```
 
 * Python
 ```
-Python part is still in develop.
+Now, the bot can online, and others is still in developing.
+```
+
+* TypeScript
+```
+Ping command which shows the latency of the bot.
+Others is still in developing.
 ```
 
 ## Auto Configure
 See at [autoConfig](./docs/autoConfig.md) file.
 
-## Tutorial
-See at [tutorial](./docs/tutorial.md).
+## Guide
+See at [Guide](./docs/guide).
+
+**This part is not finished yet.**
 
 ## CommandList
 See at [CommandList](./docs/CommandList.md) file.
