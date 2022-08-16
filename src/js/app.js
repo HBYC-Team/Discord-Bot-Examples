@@ -16,7 +16,14 @@ const token = process.env.TOKEN;
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildVoiceStates,GatewayIntentBits.GuildPresences,GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent], partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction] });
 
-
+let date = new Date();
+let datetime = date.getFullYear() + "-"
+			+ (date.getMonth() + 1) + "-"
+            + date.getDate() + " "
+			+ date.getHours() + ":"
+            + date.getMinutes() + ":"
+            + date.getSeconds();
+	
 client.on("interactionCreate", async interaction => {
 
 	if(!interaction.type === InteractionType.ApplicationCommand) return;
@@ -29,9 +36,11 @@ client.on("interactionCreate", async interaction => {
 
 	try {
 		await command.execute(interaction);
-	} catch(error) {
-		console.error(error);
-	 	await interaction.reply("指令出現問題，可能是參數錯誤或其他原因導致");
+	} catch(error){
+	 	await interaction.reply("指令出現問題，已經將錯誤訊息私訊了喔！");
+		await interaction.user.send(`錯誤訊息：${error.message}\n有問題歡迎使用/report指令喔！`);
+		console.log(`Error at:${datetime}\n ${error}`);
+		console.log("--");
 	}
 });
 
