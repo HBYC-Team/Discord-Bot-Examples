@@ -44,6 +44,11 @@ If you have any problem, please contract me.
 ## Linux, Mac
 You can run [build.sh](../configure/build.sh) to auto configure this bot.
 
-If you have any problem, use `~/your/path/to/HBYC/configure $ ./build.sh -h`.
+Before you start using this file, please remember to enter this:
+```bash
+$ chmod a + x ./configure/build.sh
+```
+
+If you have any problem, use `$ ~/your/path/to/HBYC/configure && ./build.sh -h`.
 
 If the help list isn't help you, please contract me.
