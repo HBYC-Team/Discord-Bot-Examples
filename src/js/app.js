@@ -1,8 +1,8 @@
 /*****************************************
  ************HBYC Discord Bot*************
  **********Author: dragonyc1002***********
- **********License: BSD 3-Clause**********
- *************Version: 0.1.0*************
+ **********License: Apache 2.0**********
+ *************Version: 1.0.0*************
  ********Release Date: 2022-08-15*********
  *****************************************/
 const { Client, Collection, GatewayIntentBits, Partials, InteractionType } = require("discord.js");
@@ -79,12 +79,18 @@ client.on('messageCreate', async message => {
 		let replyMsg = lanBot[replies];
 		await message.channel.send(replyMsg);
 		console.log("爛bot");
+		console.log(`from ${interaction.guild.name}`);
+		console.log(`by ${interaction.user.username}`);
+		console.log(`At ${datetime}`);
 		console.log("------");
 	};
 
 	if(message.content === "x04bot"){
 		await message.channel.send("要罵人之前請先記得切換輸入法呦;)");
 		console.log("x04bot");
+		console.log(`from ${interaction.guild.name}`);
+        console.log(`by ${interaction.user.username}`);
+        console.log(`At ${datetime}`);
 		console.log("------");
 	};
 
@@ -93,6 +99,9 @@ client.on('messageCreate', async message => {
 		let replyMsg = dalao[replies];
 		await message.channel.send(replyMsg);
 		console.log("dalao");
+		console.log(`from ${interaction.guild.name}`);
+        console.log(`by ${interaction.user.username}`);
+        console.log(`At ${datetime}`);
 		console.log("------");
 	};
 
@@ -101,6 +110,9 @@ client.on('messageCreate', async message => {
 		let replyMsg = mention[replies];
 		await message.channel.send(replyMsg);
 		console.log("Got tag");
+		console.log(`from ${interaction.guild.name}`);
+        console.log(`by ${interaction.user.username}`);
+        console.log(`At ${datetime}`);
 		console.log("------");
 	};
 
@@ -109,6 +121,9 @@ client.on('messageCreate', async message => {
 		let replyMsg = lanDino[replies];
 		await message.channel.send(replyMsg);
 		console.log("爛恐龍");
+		console.log(`from ${interaction.guild.name}`);
+ 	    console.log(`by ${interaction.user.username}`);
+        console.log(`At ${datetime}`);
 		console.log("------");
 	};
 
@@ -121,6 +136,9 @@ client.on('messageCreate', async message => {
 			let replyMsg = www[replies];
 			await message.channel.send(replyMsg);
 			console.log("www");
+	        console.log(`from ${interaction.guild.name}`);
+            console.log(`by ${interaction.user.username}`);
+            console.log(`At ${datetime}`);
 			console.log("------");
 		} else {
 			return;
