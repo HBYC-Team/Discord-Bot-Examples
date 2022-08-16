@@ -42,7 +42,7 @@ module.exports = {
          		+ new Date().getMinutes() + ":" 
         		+ new Date().getSeconds();
 
-        await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡：）\nhttps://github.com/HBYC-BOT/HBYC/tree/master/docs/help.md`)
+        await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡：）\nhttps://github.com/HBYC-Team/HBYC/tree/master/docs/help.md`)
         /*const cmdName = interaction.options.getString("指令名稱");
 
         if(cmdName === "2048"){

@@ -21,8 +21,8 @@ module.exports = {
             .setColor(0x000000)
             .setTitle("HBYC的原始碼連結")
             .addFields(
-                { name: "目前版本", value: "https://github.com/HBYC-BOT/HBYC", inline: true },
-                { name: "舊版本", value: "https://github.com/HBYC-BOT/HBYC-old", inline: false }
+                { name: "目前版本", value: "https://github.com/HBYC-Team/HBYC", inline: true },
+                { name: "舊版本", value: "https://github.com/HBYC-Team/HBYC-old", inline: false }
             )
             .setThumbnail(interaction.client.user.displayAvatarURL())
             .setTimestamp()

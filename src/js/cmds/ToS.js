@@ -19,8 +19,8 @@ module.exports = {
 		const ToSEmbed = new EmbedBuilder()
 			.setTitle("HBYC的服務條款")
 			.addFields(
-				{ name: "中文版", value: "https://github.com/HBYC-BOT/HBYC/tree/master/docs/TeamofService-Tw.md" },
-				{ name: "English Version", value: "https://github.com/HBYC-BOT/HBYC/tree/master/docs/TeamofService.md" }
+				{ name: "中文版", value: "https://github.com/HBYC-Team/HBYC/tree/master/docs/TeamofService-Tw.md" },
+				{ name: "English Version", value: "https://github.com/HBYC-Team/HBYC/tree/master/docs/TeamofService.md" }
 			)
 			.setTimestamp()
 			.setFooter({ text: `${interaction.user.username}，若有更多問題歡迎與作者聯絡！`, iconURL: interaction.user.displayAvatarURL() })
