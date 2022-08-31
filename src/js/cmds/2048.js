@@ -12,7 +12,8 @@ const tofeData = new SlashCommandBuilder()
 			.addChoices(
 				{ name: "簡單", value: '簡單模式' },
 				{ name: "困難", value: '困難模式' },
-			));
+			)
+	);
 
 
 
@@ -42,16 +43,14 @@ module.exports = {
   			strings: tofe
 		});
 
-		await game.initialize();
-		await game.start();
-		await game.conclude();
-
-
-		console.log(`>2048 hardMode: ${hardMode}`);
+		console.log(`>2048 *Game Start* hardMode: ${hardMode}`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
 		console.log("------------");
 
+		await game.initialize();
+		await game.start();
+		await game.conclude();
 	}
 }
