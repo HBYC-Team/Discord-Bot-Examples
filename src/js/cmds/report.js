@@ -40,7 +40,8 @@ module.exports = {
 			.setFooter({ text: `你的訊息已經回報至後台`, iconURL: interaction.client.user.avatarURL() });
 
 		await interaction.reply({ embeds: [replyEmbed] });
-		
+		await interaction.user.send("您的回報內容已經送至後台，請稍待團隊成員進行聯絡");
+
 		console.log("######## User Report ########");
 		console.log(`From ${interaction.guild.name}`);
 		console.log(`By ${interaction.user.tag}`);
