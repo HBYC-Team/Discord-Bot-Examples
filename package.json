@@ -6,7 +6,6 @@
   "directories": {
     "doc": "docs/"
   },
-
   "dependencies": {
     "@discordjs/builders": "^1.2.0",
     "@discordjs/rest": "^1.1.0",
@@ -14,33 +13,28 @@
     "@hizollo/osu-api": "^1.2.0",
     "@kyometori/djsmusic": "^0.8.5",
     "discord.js": "^14.3.0",
+    "dotenv": "^16.0.2",
     "moment": "^2.29.4"
   },
-
   "engines": {
     "node": ">=16.9.0"
   },
-
   "scripts": {
     "all": "npm install && node deploy.js && node app.js",
     "start": "node src/js/app.js",
     "deploy": "node src/js/deploy.js",
     "compile": "ts-node src/ts/index.ts"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dragonyc1002/HBYC.git"
   },
-
   "author": "dragonyc1002",
   "license": "CC-BY-4.0",
   "bugs": {
     "url": "https://github.com/dragonyc1002/HBYC/issues"
   },
-
   "homepage": "https://github.com/dragonyc1002/HBYC#readme",
-  
   "devDependencies": {
     "@types/node": "^18.7.3",
     "ts-node": "^10.9.1",
