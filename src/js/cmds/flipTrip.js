@@ -32,14 +32,14 @@ module.exports = {
 			strings: flipTrip
 		});
 
-		await game.initialize();
-		await game.start();
-		await game.conclude();
-
-		console.log(`>fliptrip ${size}`);
+		console.log(`>fliptrip *Game Start* ${size}`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
 		console.log("------------");
+
+		await game.initialize();
+		await game.start();
+		await game.conclude();
 	}
 }

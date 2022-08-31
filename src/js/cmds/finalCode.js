@@ -8,15 +8,18 @@ const finalCodeData = new SlashCommandBuilder()
 	.addUserOption(option => 
 		option.setName("p2")
 		.setDescription("玩家2")
-		.setRequired(false))
+		.setRequired(false)
+	)
 	.addUserOption(option => 
 		option.setName("p3")
 		.setDescription("玩家3")
-		.setRequired(false))
+		.setRequired(false)
+	)
 	.addUserOption(option => 
 		option.setName("p4")
 		.setDescription("玩家4")
-		.setRequired(false))
+		.setRequired(false)
+	)
 	.addUserOption(option => 
 		option.setName("p5")
 		.setDescription("玩家5")
@@ -66,15 +69,15 @@ module.exports = {
 			strings: finalCode
 		});
 
-		await game.initialize();
-		await game.start();
-		await game.conclude();
-
-		console.log(`>finalcode`);
+		console.log(`>finalcode *Game Start*`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
 		console.log("------------");
+
+		await game.initialize();
+		await game.start();
+		await game.conclude();
 	}
 }
 

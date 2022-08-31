@@ -8,11 +8,13 @@ const gomokuData = new SlashCommandBuilder()
 	.addUserOption(option => 
 		option.setName("p2")
 			.setDescription("玩家2")
-			.setRequired(true))
+			.setRequired(true)
+	)
 	.addUserOption(option => 
 		option.setName("p3")
 		.setDescription("玩家3")
-		.setRequired(false))
+		.setRequired(false)
+	)
 
 
 module.exports = {
@@ -54,15 +56,15 @@ module.exports = {
         	strings: gomoku
         });
 
-        await game.initialize();
-        await game.start();
-        await game.conclude();
-
-        console.log(`>gomoku`);
+		console.log(`>gomoku *Game Start*`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
 		console.log("------------");
+
+        await game.initialize();
+        await game.start();
+        await game.conclude();
 	}
 }
 
