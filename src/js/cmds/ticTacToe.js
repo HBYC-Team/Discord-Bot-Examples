@@ -48,6 +48,12 @@ module.exports = {
             players: players
         });
 
+        console.log(`>ticTacToe *Game Start*`);
+        console.log(`from ${interaction.guild.name}`);
+        console.log(`by ${interaction.user.tag}`);
+        console.log(`at ${datetime}`);
+        console.log("------------");
+
         await game.initialize();
         await game.start();
         await game.conclude();   
