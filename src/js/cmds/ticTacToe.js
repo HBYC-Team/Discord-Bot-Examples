@@ -48,6 +48,13 @@ module.exports = {
             players: players
         });
 
+        let datetime = new Date().getFullYear() + "-" 
+                + (new Date().getMonth()+1) + "-" 
+                + new Date().getDate() + " " 
+                + new Date().getHours() + ":"  
+                + new Date().getMinutes() + ":" 
+                + new Date().getSeconds();
+        
         console.log(`>ticTacToe *Game Start*`);
         console.log(`from ${interaction.guild.name}`);
         console.log(`by ${interaction.user.tag}`);
