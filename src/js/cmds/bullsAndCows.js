@@ -37,21 +37,20 @@ module.exports = {
 
 		const game = new DjsBullsAndCows({
 			source: interaction,
-			players: [interaction.user],
+			players: [user],
 			hardMode: hardMode,
 			strings: bullsAndCows
 		});
 
-		await game.initialize();
-		await game.start();
-		await game.conclude();
-
-
-		console.log(`>bullsandcows hardMode: ${hardMode}`);
+		console.log(`>bullsandcows *Game Start* hardMode: ${hardMode}`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
 		console.log("------------");
+
+		await game.initialize();
+		await game.start();
+		await game.conclude();
 
 	},
 }

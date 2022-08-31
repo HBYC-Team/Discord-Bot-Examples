@@ -40,15 +40,14 @@ module.exports = {
   			strings: bigTwo 
 		});
 
-		await game.initialize();
-		await game.start();
-		await game.conclude();
-
-
-		console.log(`>bigtwo ${p1.tag} ${p2.tag} ${p3.tag} ${p4.tag}`);
+		console.log(`>bigTwo *Game Start* ${p1.tag} ${p2.tag} ${p3.tag} ${p4.tag}`);
 		console.log(`from ${interaction.guild.name}`);
 		console.log(`by ${interaction.user.tag}`);
 		console.log(`at ${datetime}`);
 		console.log("------------");
-	},
+
+		await game.initialize();
+		await game.start();
+		await game.conclude();
+	}
 }
