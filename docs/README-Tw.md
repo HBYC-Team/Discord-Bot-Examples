@@ -2,12 +2,12 @@
 ![license](https://img.shields.io/github/license/dragonyc1002/HBYC?style=for-the-badge)
 ![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC?style=for-the-badge)
 ![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badge)
-[![EMU900!!!](./public/images/banner.jpeg)](https://reurl.cc/GxQqdy)
+[![EMU900!!!](./public/images/banner-EMU800.jpeg)](https://reurl.cc/GxQqdy)
 一個簡易的Discord機器人範例，主要使用套件如下：
 
-* JavaScript
+* JavaScript / TypeScript
 ```
-> discord.js v14.2.0
+> discord.js v14.3.0
 > @hizollo/games v2.4.0
 > @kyometori/djsmusic v0.8.5 -> 本套件需等待作者rewrite至適用於djs v14的版本。
 ```
@@ -19,12 +19,12 @@
 
 * Python
 ```
-> discord.py v1.7.3
+> pycord v2.1.1
 ```
 
 目前正在進行Go, Python範例的製作。
 
-**本機器人使用JavaScript運行，Go/Python為單純範例，並無使用於機器人。**
+**本機器人使用JavaScript運行，Go/Python/TypeScript為單純範例，並無使用於機器人。**
 
 ## 如何做一台跟這台一樣的機器人
 自己fork這份專案或抓source code回去。
@@ -60,9 +60,9 @@ $ node deploy.js
 `$ npm run start` - 讓機器人上線。
 
 ## Go, Python快速配置(也可適用於JavaScript)
-Windows使用者可以直接運行`configure/build.bat` 進行配置。
+Windows使用者可以直接運行`configuration/configure.cmd` 進行配置。
 
-Linux, Mac使用者可以直接運行`configure/build.sh` 進行配置。（請記得將運行此script的權限開啟）
+Linux, Mac使用者可以直接運行`configure/configure` 進行配置。（請記得將運行此script的權限開啟）
 
 ## 專案包含
 * discord.js v14達成簡易的許多功能
@@ -71,10 +71,10 @@ Linux, Mac使用者可以直接運行`configure/build.sh` 進行配置。（請�
 * 簡易聊天指令
 
 ## 指令列表
-請見[指令列表](./docs/CommandList.md)檔案。
+請見[指令列表](./docs/commandList.md)檔案。
 
 ## 授權方式
-請見[LICENSE](./LICENSE)檔案。
+本專案採CC-BY-4.0授權，詳細內容請參見[本檔案](../LICENSE)。
 
 ## 相依性套件
 請見[package.json](./package.json)檔案。
@@ -83,7 +83,7 @@ Linux, Mac使用者可以直接運行`configure/build.sh` 進行配置。（請�
 請見[更新日誌](./CHANGELOG.md)檔案(EN-Only)。
 
 ## 注意
-本專案並沒有公開所有指令的原始碼，只公開部份指令的原始碼。
+本專案有部份指令原始碼並無公開。
 
 ## 作者
 恐龍#2549/dragonyc1002。
