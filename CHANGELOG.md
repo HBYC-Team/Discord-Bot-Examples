@@ -1,6 +1,24 @@
 # HBYC CHANGELOG
 This document is a Changelog of this Repo.
 
+## v1.1.0
+* Added Tic-Tac-Toe game, `hbycinfo` command and ban list test.
+
+* Removed all events of [interactionCreate](./src/js/events/interactionCreate.cjs).
+
+* Fixed more bugs:
+```
+(1) The bot will offline when erroring.
+(2) Some datetime error of the games.
+(3) On message event, console will show "interaction is not defined".
+```
+
+* Added ignore files, ban list.
+
+* Finish Python [Chat Commands](./src/python/cmds/chat.py) example, configuration files.
+
+* Added new banner and avatar.
+
 ## v1.0.0
 * Added Go, Python, TypeScript main file examples.
 
@@ -35,6 +53,8 @@ This document is a Changelog of this Repo.
 
 
 ## v0.1.0
+**Moved Project From Python**
+
 * Added Games - `BigTwo`, `2048`, `BullsAndCows`, `FinalCode`, `FlipTrip`, `Gomoku`.
 
 * Added Commands - `dev`,  `info`,  `select`,  `github`.
