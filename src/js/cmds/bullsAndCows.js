@@ -25,8 +25,6 @@ module.exports = {
          		+ new Date().getMinutes() + ":" 
         		+ new Date().getSeconds();
 		
-		const user = interaction.user;
-		
 		const hardMode = (() => {
 			if(interaction.options.getString("難度") === "簡單模式"){
 				return false;
@@ -37,7 +35,7 @@ module.exports = {
 
 		const game = new DjsBullsAndCows({
 			source: interaction,
-			players: [user],
+			players: [interaction.user],
 			hardMode: hardMode,
 			strings: bullsAndCows
 		});
