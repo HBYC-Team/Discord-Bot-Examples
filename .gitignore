@@ -16,5 +16,3 @@ src/python/core/__pycacho__/
 
 src/ts/.env
 src/ts/dist
-src/ts/struct/CommandData.ts
-src/ts/cmds/avatar.ts
