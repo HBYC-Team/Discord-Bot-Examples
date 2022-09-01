@@ -2,8 +2,8 @@
  ************HBYC Discord Bot*************
  **********Author: dragonyc1002***********
  ***********License: CC-BY-4.0************
- *************Version: 1.0.0**************
- ********Release Date: 2022-08-15*********
+ *************Version: 1.1.0**************
+ ********Release Date: 2022-09-01*********
  *****************************************/
 const { Client, Collection, GatewayIntentBits, Partials, InteractionType } = require("discord.js");
 const { createMusicManager } = require("@kyometori/djsmusic");
@@ -70,6 +70,11 @@ for(const file of eventFiles) {
 	}
 }
 
+/**Define some function**/
+function getIntegerRandomValue(number){
+	return Math.floor(Math.random()*number);
+}
+
 client.on('messageCreate', async message => {
 	if(message.author.bot) return;
 	if(banList.includes(message.author.id)) return;
@@ -79,9 +84,20 @@ client.on('messageCreate', async message => {
 		return;
 	};
 
+
 	if(message.content === "爛bot" || message.content === "lan bot" || message.content === "爛Bot" || message.content === "爛BOT"){
-		let replies = Math.floor(Math.random()*lanBot.length);
-		let replyMsg = lanBot[replies];
+		const rareChance = getIntegerRandomValue(100);
+		const itemRandom = getIntegerRandomValue(lanBot.length);
+		const rareRandomReply = lanBot[itemRandom];
+
+		const replyMsg = (() => {
+			if(rareChance >= 10){
+				return "QAQ";
+			} else if(10 <= rareChance <= 100){
+				return rareRandomReply;
+			}
+		})();
+
 		let date = new Date();
 		let datetime = date.getFullYear() + "-"
 				+ (date.getMonth() + 1) + "-"
@@ -91,7 +107,7 @@ client.on('messageCreate', async message => {
 	            + date.getSeconds();
 		try{
 			await message.channel.send(replyMsg);
-			console.log("爛bot");
+			console.log("爛bot", rareChance);
 			console.log(`from ${message.guild.name}`);
 			console.log(`by ${message.author.tag}`);
 			console.log(`At ${datetime}`);
@@ -170,7 +186,7 @@ client.on('messageCreate', async message => {
 		}
 	};
 
-	if(message.mentions.has(client.user.id)){
+	if(message.mentions.has(client.user.id, { ignoreRoles: true, ignoreEveryone: true })){
 		let replies = Math.floor(Math.random()*mention.length);
 		let replyMsg = mention[replies];
 		let date = new Date();
@@ -279,8 +295,5 @@ client.on('messageCreate', async message => {
   
 });
 
-
-
-
-
+// On heroku, this line is for bot 247, token is in heroku config vars, on console, this is for testing, token is in .env.
 client.login(token);
