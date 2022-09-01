@@ -50,9 +50,6 @@ See at [LICENSE](./LICENSE) file.
 ## Changelog
 See at [Changelog](./CHANGELOG.md) file.
 
-## Attention
-This repo is not all open-source, few commands are non-open source.
-
 ## Author
 恐龍#2549/dragonyc1002。
 
