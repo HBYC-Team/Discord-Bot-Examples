@@ -22,7 +22,7 @@ module.exports = {
         console.log("------------------------");
         console.log(`Now Services in ${client.guilds.cache.size} guilds`)
 		console.log("------------------------");
-		client.user.setPresence({ activities: [{ name: `在 ${client.guilds.cache.size} 個伺服器中服務\(´･ω･\`\)` }] });
+		client.user.setPresence({ activities: [{ name: `在 ${client.guilds.cache.size} 個伺服器中被壓榨\(´･ω･\`\)` }] });
 		console.log(client.guilds.cache.map(guild => guild.name));
 		console.log(client.guilds.cache.map(guild => guild.id));
 		console.log("------------------------");
