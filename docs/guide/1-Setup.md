@@ -33,5 +33,5 @@ In Python, you just need to follow the environment setup steps of JavaScript.
 
 The steps are the same.
 
-### For Help
-You can contract me on Twitter, Instagram or Discord.
+## Next
+See [mainFileSetup](./2-MainFileSetup.md).
