@@ -1,6 +1,8 @@
-/*Discord Bot TypeScript Example*
-******Author: dragonyc1002*******
-*********Version: 1.0.0**********/
+/*****************************************
+******Discord Bot Example - TypeScript****
+***********Author: dragonyc1002***********
+***************Version: 1.1.0*************
+******************************************/
 import { Client, Collection, GatewayIntentBits, Partials, CommandInteraction } from "discord.js";
 
 import ready from "./events/ready";
