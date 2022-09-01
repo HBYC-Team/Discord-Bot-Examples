@@ -1,6 +1,11 @@
 # HBYC CHANGELOG
 This document is a Changelog of this Repo.
 
+## v1.1.0a
+* Pushed ignored commands.
+
+* Few bug fixes.
+
 ## v1.1.0
 * Added Tic-Tac-Toe game, `hbycinfo` command and ban list test.
 
