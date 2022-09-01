@@ -5,12 +5,8 @@ go.sum
 
 src/js/.env
 src/js/modules/
-src/js/cmds/announcement.js
-src/js/cmds/presence.js
-src/js/cmds/thinking.js
 src/js/cmds/join.js
 src/js/events/messageCreate.mjs
-src/js/events/ready.js
 
 src/go/.env
 
@@ -21,4 +17,4 @@ src/python/core/__pycacho__/
 src/ts/.env
 src/ts/dist
 src/ts/struct/CommandData.ts
-
+src/ts/cmds/avatar.ts
