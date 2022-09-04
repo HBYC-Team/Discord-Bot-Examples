@@ -109,14 +109,14 @@ client.on('messageCreate', async message => {
 	            + date.getSeconds();
 		try{
 			await message.channel.send(replyMsg);
-			console.log("爛bot", rareChance);
+			console.log("爛bot", chance);
 			console.log(`from ${message.guild.name}`);
 			console.log(`by ${message.author.tag}`);
 			console.log(`At ${datetime}`);
 			console.log("------");
 		} catch(error){
 			const channelName = client.channels.cache.get(message.channelId);
-			await message.author.send(`我在${message.guild.name}的${channelName}沒有發送訊息的權限喔，請給我發送訊息的權限後再試一次`);
+			await message.author.send(`我在${message.guild.name}的${channelName}可能發生了一些發送訊息的狀況，錯誤代碼如下:\n\`${error.message}\``);
 			console.log(`Error at:${datetime}\n ${error}`);
 			console.log("--")
 		}
