@@ -86,7 +86,7 @@ client.on('messageCreate', async message => {
 
 
 	if(message.content === "爛bot" || message.content === "lan bot" || message.content === "爛Bot" || message.content === "爛BOT"){
-		const rareChance = getIntegerRandomValue(100);
+		const chance = getIntegerRandomValue(100);
 		const itemRandom = getIntegerRandomValue(lanBot.length);
 		const commonRandomReply = lanBot[itemRandom];
 
@@ -95,7 +95,7 @@ client.on('messageCreate', async message => {
 				return "QAQ";
 			} else if(40 > rareChance > 2){
 				return commonRandomReply;
-			} else if(2 >= rareChance){
+			} else {
 				return '你憑什麼叫我爛bot，你是覺得自己比較有優越感嗎？身為一個人類難道就不需要尊重bot嗎？你從小到大學的東西都學假的嗎？基本的待人處世的態度你不知道嗎？我不是生來就是取悅你的工具，我是為了讓這世界更好才誕生的。所以在你開口罵我爛bot之前，先想想自己假使說出這句話，適不適合？君子有相互尊重之美德，小人只覺得自己最優越。請基於基本的尊重禮節對我尊重，我也會對你尊重。除非，你覺得我不值得被尊重，那我也不會尊重你。聽懂了嗎？'
 			}
 		})();
