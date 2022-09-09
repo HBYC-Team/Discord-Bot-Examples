@@ -33,16 +33,17 @@ module.exports = {
 		await interaction.reply({ embeds: [ToSEmbed] });
 
 		const cmdHookEmbed = new EmbedBuilder()
-			.setTitle(`Command Log - /tos`)
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
 			.setColor(0x00bfff)
+			.setDescription("Command: `/tos`")
 			.addFields(
 				{ name: "User Tag", value: interaction.user.tag },
 				{ name: "User ID", value: interaction.user.id },
-				{ name: "Guild", value: interaction.guild.name },
+				{ name: "Guild Name", value: interaction.guild.name },
 				{ name: "Guild ID", value: interaction.guild.id }
 			)
 			.setTimestamp()
-			.setFooter({ text: bot.version });
+			.setFooter({ text: 'Shard#1' });
 
 		cmdHook.send({
 			embeds: [cmdHookEmbed]
