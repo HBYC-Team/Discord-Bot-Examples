@@ -1,5 +1,16 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { bot } = require('../../constants.json');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+	id: cmdHookId,
+	token: cmdHookToken
+});
 
 const avatarData = new SlashCommandBuilder()
 	.setName("avatar")
@@ -12,15 +23,8 @@ const avatarData = new SlashCommandBuilder()
 
 module.exports = {
 	data: avatarData,
-
+	
 	async execute(interaction){
-		let datetime = new Date().getFullYear() + "-" 
-        	 	+ (new Date().getMonth()+1) + "-" 
-         		+ new Date().getDate() + " " 
-        		+ new Date().getHours() + ":"  
-         		+ new Date().getMinutes() + ":" 
-        		+ new Date().getSeconds();
-        		
 		const member = (() => {
 			if(interaction.options.getUser("用戶名稱") === null){
 				return interaction.user;
@@ -49,11 +53,20 @@ module.exports = {
 		
 		await interaction.reply({ embeds: [avatarEmbed] });
 
+		const cmdHookEmbed = new EmbedBuilder()
+			.setTitle(`Command Log - /avatar ${member.tag}`)
+			.setColor(0x00bfff)
+			.addFields(
+				{ name: "User Tag", value: interaction.user.tag },
+				{ name: "User ID", value: interaction.user.id },
+				{ name: "Guild", value: interaction.guild.name },
+				{ name: "Guild ID", value: interaction.guild.id }
+			)
+			.setTimestamp()
+			.setFooter({ text: bot.version });
 
-		console.log(`>avatar ${member.tag}`);
-		console.log(`from ${interaction.guild.name}`);
-		console.log(`by ${interaction.user.tag}`);
-		console.log(`at ${datetime}`);
-		console.log("------------");
+		cmdHook.send({
+			embeds: [cmdHookEmbed]
+		});
 	}
 }
