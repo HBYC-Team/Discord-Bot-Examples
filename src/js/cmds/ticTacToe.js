@@ -2,7 +2,6 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js')
 const { DjsTicTacToe } = require('@hizollo/games');
 const { ticTacToe } = require('../../gameStrings.json');
-const { bot } = require('../../constants.json');
 
 require('dotenv').config({ path: '/src/js'});
 
