@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { EmbedBuilder } = require("discord.js");
-const { links } = require('../../constants.json');
+const { EmbedBuilder, WebhookClient } = require("discord.js");
+const { bot, links } = require('../../constants.json');
 
 require('dotenv').config({ path: '/src/js'});
 
