@@ -3,7 +3,7 @@ const { EmbedBuilder, WebhookClient } = require('discord.js');
 const { DjsBigTwo } = require('@hizollo/games');
 const { bigTwo } = require('../../gameStrings.json');
 
-require('dotenv').config({ path: '/src/js'});
+require('dotenv').config({ path: '/src/js' });
 
 const cmdHookId = process.env.cmdHookId;
 const cmdHookToken = process.env.cmdHookToken;
@@ -37,6 +37,11 @@ module.exports = {
 		const p2 = interaction.options.getUser("p2");
 		const p3 = interaction.options.getUser("p3");
 		const p4 = interaction.options.getUser("p4");
+
+		if(p2.bot || p3.bot || p4.bot){
+			await interaction.reply({ content: "機器人們不會玩大老二啦，他們太爛了", ephemeral: true });
+			return;
+		}
 
 		const game = new DjsBigTwo({
   			source: interaction, 
