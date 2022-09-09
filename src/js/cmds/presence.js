@@ -1,5 +1,16 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { presence } = require("../../config.json");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { presence } = require('../../config.json');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+	id: cmdHookId,
+	token: cmdHookToken
+});
 
 const presenceData = new SlashCommandBuilder()
 	.setName("presence")
@@ -9,24 +20,28 @@ module.exports = {
 	data: presenceData,
 
 	async execute(interaction){
-		let datetime = new Date().getFullYear() + "-" 
-        	 	+ (new Date().getMonth()+1) + "-" 
-         		+ new Date().getDate() + " " 
-        		+ new Date().getHours() + ":"  
-         		+ new Date().getMinutes() + ":" 
-        		+ new Date().getSeconds();
-		
-		let statusList = Math.floor(Math.random()*presence.length);
-		let status = presence[statusList];
+		let statusItem = Math.floor(Math.random()*presence.length);
+		let status = presence[statusItem];
 
 		await interaction.client.user.setPresence({ activities: [{ name: status }] });
+		await interaction.reply(`<@!${interaction.user.id}>，已經將動態更改為\`${status}\`，5分鐘後可以再次使用這個指令！`);
 		
-		await interaction.reply(`<@!${interaction.user.id}>，已經將動態更改為\`${status}\`，5分鐘後可以再次使用這個指令！"`);
-		
-		console.log(`>presence => ${status}`);
-		console.log(`from ${interaction.guild.name}`);
-		console.log(`by ${interaction.user.tag}`);
-		console.log(`at ${datetime}`);
-		console.log("------------");
+		const cmdHookEmbed = new EmbedBuilder()
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+			.setColor(0x00bfff)
+			.setDescription("Command: `/presence`")
+			.addFields(
+				{ name: "User Tag", value: interaction.user.tag },
+				{ name: "User ID", value: interaction.user.id },
+				{ name: "Guild Name", value: interaction.guild.name },
+				{ name: "Guild ID", value: interaction.guild.id },
+				{ name: "Now's Presence", value: status }
+			)
+			.setTimestamp()
+			.setFooter({ text: 'Shard#1' });
+
+		cmdHook.send({
+			embeds: [cmdHookEmbed]
+		});
 	}
 }
