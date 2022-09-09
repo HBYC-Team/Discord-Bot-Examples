@@ -1,6 +1,18 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { DjsTicTacToe } = require("@hizollo/games");
-const { tocTacToe } = require('../gameStrings.json')
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js')
+const { DjsTicTacToe } = require('@hizollo/games');
+const { ticTacToe } = require('../../gameStrings.json');
+const { bot } = require('../../constants.json');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+    id: cmdHookId,
+    token: cmdHookToken
+});
 
 const ticTacToeData = new SlashCommandBuilder()
     .setName("tictactoe")
@@ -33,7 +45,7 @@ module.exports = {
         const players = [{
             username: p1.username,
             id: p1.id,
-            symbol: "❌"
+            symbol: "❌",
             bot: true
         },{
             username: p2.username,
@@ -52,11 +64,29 @@ module.exports = {
         const game = new DjsTicTacToe({
             source: interaction,
             players: players,
+            strings: ticTacToe,
             boardSize: boardSize
         });
 
         await game.initialize();
         await game.start();
-        await game.conclude();   
+        await game.conclude();
+
+        const cmdHookEmbed = new EmbedBuilder()
+            .setTitle(`Command Log - /ticTacToe`)
+            .setColor(0x00bfff)
+            .addFields(
+                { name: "User Tag", value: interaction.user.tag },
+                { name: "User ID", value: interaction.user.id },
+                { name: "Guild", value: interaction.guild.name },
+                { name: "Guild ID", value: interaction.guild.id },
+                { name: "Players", value: `${p1.tag} & ${p2.tag}`}
+            )
+            .setTimestamp()
+            .setFooter({ text: `版本號:${bot.version}` });
+
+        cmdHook.send({
+            embeds: [cmdHookEmbed]
+        }); 
     }
 }
