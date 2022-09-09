@@ -50,16 +50,17 @@ module.exports = {
 		await game.conclude();
 
 		const cmdHookEmbed = new EmbedBuilder()
-            .setTitle(`Command Log - /bullsandcows`)
-            .setColor(0x00bfff)
-            .addFields(
-                { name: "User Tag", value: interaction.user.tag },
-                { name: "User ID", value: interaction.user.id },
-                { name: "Guild", value: interaction.guild.name },
-                { name: "Guild ID", value: interaction.guild.id }
-            )
-            .setTimestamp()
-            .setFooter({ text: bot.version });
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+			.setColor(0x00bfff)
+			.setDescription("Command: `/bullsandcows`")
+			.addFields(
+				{ name: "User Tag", value: interaction.user.tag },
+				{ name: "User ID", value: interaction.user.id },
+				{ name: "Guild Name", value: interaction.guild.name },
+				{ name: "Guild ID", value: interaction.guild.id }
+			)
+			.setTimestamp()
+			.setFooter({ text: 'Shard#1' });
 
         cmdHook.send({
             embeds: [cmdHookEmbed]

@@ -2,7 +2,6 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js');
 const { DjsBigTwo } = require('@hizollo/games');
 const { bigTwo } = require('../../gameStrings.json');
-const { bot } = require('../../constants.json');
 
 require('dotenv').config({ path: '/src/js'});
 
@@ -50,17 +49,18 @@ module.exports = {
 		await game.conclude();
 
 		const cmdHookEmbed = new EmbedBuilder()
-			.setTitle(`Command Log - /bigtwo`)
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
 			.setColor(0x00bfff)
+			.setDescription("Command: `/bigtwo`")
 			.addFields(
 				{ name: "User Tag", value: interaction.user.tag },
 				{ name: "User ID", value: interaction.user.id },
-				{ name: "Guild", value: interaction.guild.name },
+				{ name: "Guild Name", value: interaction.guild.name },
 				{ name: "Guild ID", value: interaction.guild.id },
 				{ name: "Players", value: `${p1.tag}, ${p2.tag}, ${p3.tag}, ${p4.tag}`}
 			)
 			.setTimestamp()
-			.setFooter({ text: bot.version });
+			.setFooter({ text: "Shard#1" });
 
 		cmdHook.send({
 			embeds: [cmdHookEmbed]
