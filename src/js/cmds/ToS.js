@@ -42,7 +42,7 @@ module.exports = {
 				{ name: "Guild ID", value: interaction.guild.id }
 			)
 			.setTimestamp()
-			.setFooter({ text: `${bot.version}` });
+			.setFooter({ text: bot.version });
 
 		cmdHook.send({
 			embeds: [cmdHookEmbed]
