@@ -73,18 +73,19 @@ module.exports = {
         await game.conclude();
 
         const cmdHookEmbed = new EmbedBuilder()
-            .setTitle(`Command Log - /ticTacToe`)
+            .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
             .setColor(0x00bfff)
+            .setDescription("Command: `/tictactoe`")
             .addFields(
                 { name: "User Tag", value: interaction.user.tag },
                 { name: "User ID", value: interaction.user.id },
-                { name: "Guild", value: interaction.guild.name },
+                { name: "Guild Name", value: interaction.guild.name },
                 { name: "Guild ID", value: interaction.guild.id },
                 { name: "Players", value: `${p1.tag} & ${p2.tag}`}
             )
             .setTimestamp()
-            .setFooter({ text: bot.version });
-
+            .setFooter({ text: 'Shard#1' });
+                
         cmdHook.send({
             embeds: [cmdHookEmbed]
         }); 
