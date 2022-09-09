@@ -31,7 +31,7 @@ const ticTacToeData = new SlashCommandBuilder()
         option.setName("對手2")
         .setDescription("對手2")
         .setRequired(false)
-    )
+    );
 
 module.exports = {
     data: ticTacToeData,
