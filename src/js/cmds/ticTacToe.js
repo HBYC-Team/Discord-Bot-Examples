@@ -83,7 +83,7 @@ module.exports = {
                 { name: "Players", value: `${p1.tag} & ${p2.tag}`}
             )
             .setTimestamp()
-            .setFooter({ text: `版本號:${bot.version}` });
+            .setFooter({ text: `${bot.version}` });
 
         cmdHook.send({
             embeds: [cmdHookEmbed]
