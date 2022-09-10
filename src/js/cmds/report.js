@@ -73,7 +73,8 @@ module.exports = {
 				{ name: "回報伺服器", value: `${interaction.guild.name} (ID:${interaction.guild.id})` },
 				{ name: "回報內容", value: `\`${content}\`` }
 			)	
-			.setTimestamp();
+			.setTimestamp()
+			.setFooter({ text: "Shard#4"});
 		
 		reportHook.send({
 			embeds: [reportHookEmbed]
