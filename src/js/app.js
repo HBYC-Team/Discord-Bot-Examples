@@ -54,8 +54,11 @@ const botHook = new WebhookClient({
 
 client.commands = new Collection();
 
-const commandFiles = fs.readdirSync('cmds').filter(file => file.endsWith('.js'));
-const eventFiles = fs.readdirSync('events').filter(file => file.endsWith('.js'));
+const cmdPath = path.join(__dirname, 'cmds');
+const eventPath = path.join(__dirname, 'events');
+
+const commandFiles = fs.readdirSync(cmdPath).filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync(eventPath).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./cmds/${file}`);
