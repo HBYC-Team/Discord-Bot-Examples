@@ -8,7 +8,6 @@ src/js/modules/
 src/js/cmds/join.js
 src/js/osu.js
 src/js/buttonRole.js
-src/js/events/messageCreate.mjs
 
 src/go/.env
 
