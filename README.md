@@ -1,10 +1,10 @@
 # HBYC
 ![license](https://img.shields.io/github/license/dragonyc1002/HBYC?style=for-the-badge)
 ![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC?style=for-the-badge) 
-![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badges)
-[![EMU900!!!](./public/images/banner-EMU800.JPG)](https://reurl.cc/GxQqdy)
+![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badge)
+[![EMU800!!!](./public/images/banner-EMU800.JPG)](https://reurl.cc/GxQqdy)
 
-This is a simple bot which is using discord.js v14.
+This is a simple bot which is using discord.js v14.x.
 
 You can find the main files of this bot [here](./src/js).
 
@@ -14,6 +14,7 @@ This repository also has muiti-language examples.
 * JavaScript
 ```
 * Easy game, chat commands.
+* Webhooks example.
 * A simple example of discord.js usage.
 ```
 
@@ -45,7 +46,9 @@ See at [Guide](./docs/guide).
 See at [commandList](./docs/commandList.md) file.
 
 ## LICENSE
-See at [LICENSE](./LICENSE) file.
+Our license is CC-BY-4.0.
+
+See more at [LICENSE](./LICENSE) file.
 
 ## Changelog
 See at [Changelog](./CHANGELOG.md) file.
