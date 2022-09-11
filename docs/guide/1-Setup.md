@@ -8,6 +8,18 @@ The Example Usage:
 ```
 TOKEN=YOUR_TOKEN_GOES_HERE
 clientId=YOUR_APPLICATION_ID(also called ClientID)_GOES_HERE
+
+cmdHookId=
+cmdHookToken=
+errHookId=
+errHookToken=
+msgHookId=
+msgHookToken=
+botHookId=
+botHookToken=
+
+reportHookId=
+reportHookToken=
 ```
 Then, your token will be used on your bot.
 
