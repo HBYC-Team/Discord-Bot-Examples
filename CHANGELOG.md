@@ -1,5 +1,22 @@
 # HBYC CHANGELOG
-This document is a Changelog of this Repo.
+This documentation is a changelog of this repository.
+
+## V2.0.0
+* Added Webhooks(Shard#1, #2, #3, #4, #5).
+
+* Added `constants.json` for some data.
+
+* Fixed known bugs.
+
+* Refactored most of the files.
+
+* Changed some import data way.
+
+* Changed `messageCreate` event to [messageCreate.js](./src/js/events/messageCreate).
+
+* Rewrite some code for refactore.
+
+* Rename some command name because that is not finished yet.
 
 ## v1.1.0a
 * Pushed ignored commands.

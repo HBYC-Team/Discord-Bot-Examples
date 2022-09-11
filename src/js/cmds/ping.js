@@ -1,5 +1,15 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+	id: cmdHookId,
+	token: cmdHookToken
+});
 
 const pingData = new SlashCommandBuilder()
 	.setName("ping")
@@ -11,13 +21,6 @@ const Ping = Math.round;
 module.exports = {
 	data: pingData,
 	async execute(interaction) {
-		let datetime = new Date().getFullYear() + "-" 
-        	 	+ (new Date().getMonth()+1) + "-" 
-         		+ new Date().getDate() + " " 
-        		+ new Date().getHours() + ":"  
-         		+ new Date().getMinutes() + ":" 
-        		+ new Date().getSeconds();
-		
 		let p = Ping(interaction.client.ws.ping);
 		
 		const replyEmbed = new EmbedBuilder()
@@ -25,13 +28,27 @@ module.exports = {
             .setTitle("HBYC目前的跑速")
             .addFields({ name: "目前延遲", value: `${p}(ms)` })
             .setThumbnail(interaction.client.user.avatarURL())
+            .setTimestamp()
+            .setFooter({ text: "有一些特定內容的訊息會有隱藏回覆！試試看輸入 爛bot" });
 
         await interaction.reply({ embeds: [replyEmbed] });
 
-        console.log(`>ping`);
-		console.log(`from ${interaction.guild.name}`);
-		console.log(`by ${interaction.user.tag}`);
-		console.log(`at ${datetime}`);
-		console.log("------------");
+		const cmdHookEmbed = new EmbedBuilder()
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+			.setColor(0x00bfff)
+			.setDescription("Command: `/ping`")
+			.addFields(
+				{ name: "User Tag", value: interaction.user.tag },
+				{ name: "User ID", value: interaction.user.id },
+				{ name: "Guild Name", value: interaction.guild.name },
+				{ name: "Guild ID", value: interaction.guild.id },
+				{ name: "Ping", value: `${p}(ms)` }
+			)
+			.setTimestamp()
+			.setFooter({ text: 'Shard#1' });
+
+		cmdHook.send({
+			embeds: [cmdHookEmbed]
+		});
 	},
 }

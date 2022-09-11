@@ -1,5 +1,15 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+	id: cmdHookId,
+	token: cmdHookToken
+});
 
 const avatarData = new SlashCommandBuilder()
 	.setName("avatar")
@@ -12,15 +22,8 @@ const avatarData = new SlashCommandBuilder()
 
 module.exports = {
 	data: avatarData,
-
+	
 	async execute(interaction){
-		let datetime = new Date().getFullYear() + "-" 
-        	 	+ (new Date().getMonth()+1) + "-" 
-         		+ new Date().getDate() + " " 
-        		+ new Date().getHours() + ":"  
-         		+ new Date().getMinutes() + ":" 
-        		+ new Date().getSeconds();
-        		
 		const member = (() => {
 			if(interaction.options.getUser("用戶名稱") === null){
 				return interaction.user;
@@ -49,11 +52,22 @@ module.exports = {
 		
 		await interaction.reply({ embeds: [avatarEmbed] });
 
+		const cmdHookEmbed = new EmbedBuilder()
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+			.setColor(0x00bfff)
+			.setDescription("Command: `/avatar`")
+			.addFields(
+				{ name: "User Tag", value: interaction.user.tag },
+				{ name: "User ID", value: interaction.user.id },
+				{ name: "Guild Name", value: interaction.guild.name },
+				{ name: "Guild ID", value: interaction.guild.id },
+				{ name: "Argument", value: member.tag }
+			)
+			.setTimestamp()
+			.setFooter({ text: 'Shard#1' });
 
-		console.log(`>avatar ${member.tag}`);
-		console.log(`from ${interaction.guild.name}`);
-		console.log(`by ${interaction.user.tag}`);
-		console.log(`at ${datetime}`);
-		console.log("------------");
+		cmdHook.send({
+			embeds: [cmdHookEmbed]
+		});
 	}
 }

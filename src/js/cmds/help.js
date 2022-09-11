@@ -1,5 +1,16 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { links } = require('../../constants.json');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+	id: cmdHookId,
+	token: cmdHookToken
+});
 
 const helpData = new SlashCommandBuilder()
 	.setName("help")
@@ -35,58 +46,83 @@ module.exports = {
 	data: helpData,
 
 	async execute(interaction){
-		let datetime = new Date().getFullYear() + "-" 
-        	 	+ (new Date().getMonth()+1) + "-" 
-         		+ new Date().getDate() + " " 
-        		+ new Date().getHours() + ":"  
-         		+ new Date().getMinutes() + ":" 
-        		+ new Date().getSeconds();
 
-        await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡：）\nhttps://github.com/HBYC-Team/HBYC/tree/master/docs/help.md`)
+        await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡呦:)\n${links.source}/tree/master/docs/help.md`)
         /*const cmdName = interaction.options.getString("指令名稱");
 
-        if(cmdName === "2048"){
-        	await interaction.reply("遊戲指令教學請參見這裡→ https://github.com/dragonyc1002/HBYC/tree")
-        } else if(cmdName === "announcement"){
+        switch cmdName {
+        	case "2048":
+        		await interaction.reply("遊戲指令教學請參見這裡→ https://github.com/dragonyc1002/HBYC/tree/");
+        		break;
+        	case "announcement":
+        		await
+        		break;
+        	case "avatar":
+        		await
+        		break;
 
-        } else if(cmdName === "avatar"){
+        	case "bigtwo":
+        		await
+        		break;
+        	case "bullsandcows":
+        		await
+        		break;
+        	case "dev":
+        		await
+        		break;
+        	case "echo":
+        		await
+        		break;
+        	case "finalcode":
+        		await
+        		break;
+        	case "fliptrip":
+        		await
+        		break;
+        	case "github":
+        		await
+        		break;
+        	case "gomoku":
+        		await
+        		break;
+        	case "info":
+        		await
+        		break;
+        	case "ping":
+        		await
+        		break;
+        	case "presence":
+        		await
+        		break;
+        	case "report":
+        		await
+        		break;
+        	case "say":
+        		await
+        		break;
+        	case "select":
+        		await
+        		break;
+        	case "thinking":
+        		await
+        		break;
+        }*/
 
-        } else if(cmdName === "bigtwo"){
+        const cmdHookEmbed = new EmbedBuilder()
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+			.setColor(0x00bfff)
+			.setDescription("Command: `/help`")
+			.addFields(
+				{ name: "User Tag", value: interaction.user.tag },
+				{ name: "User ID", value: interaction.user.id },
+				{ name: "Guild Name", value: interaction.guild.name },
+				{ name: "Guild ID", value: interaction.guild.id }
+			)
+			.setTimestamp()
+			.setFooter({ text: 'Shard#1' });
 
-        } else if(cmdName === "bullsandcows"){
-
-        } else if(cmdName === "dev"){
-
-        } else if(cmdName === "echo"){
-
-        } else if(cmdName === "finalcode"){
-
-        } else if(cmdName === "fliptrip"){
-
-        } else if(cmdName === "github"){
-
-        } else if(cmdName === "gomoku"){
-
-        } else if(cmdName === "info"){
-
-        } else if(cmdName === "ping"){
-
-        } else if(cmdName === "presence"){
-
-        } else if(cmdName === "report"){
-
-        } else if(cmdName === "say"){
-
-        } else if(cmdName === "select"){
-
-        } else if(cmdName === "thinking"){
-
-        };*/
-
-        console.log(`>help`/* ${cmdName}*/);
-		console.log(`from ${interaction.guild.name}`);
-		console.log(`by ${interaction.user.tag}`);
-		console.log(`at ${datetime}`);
-		console.log("------------");
+		cmdHook.send({
+			embeds: [cmdHookEmbed]
+		});
 	}
 }

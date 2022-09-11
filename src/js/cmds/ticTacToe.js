@@ -1,9 +1,26 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { DjsTicTacToe } = require("@hizollo/games");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js')
+const { DjsTicTacToe } = require('@hizollo/games');
+const { ticTacToe } = require('../../gameStrings.json');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+    id: cmdHookId,
+    token: cmdHookToken
+});
 
 const ticTacToeData = new SlashCommandBuilder()
     .setName("tictactoe")
     .setDescription("遊玩一場圈圈叉叉遊戲！")
+    .addIntegerOption(option => 
+        option.setName("盤面大小")
+        .setDescription("請輸入盤面大小(1~4)")
+        .setRequired(true)
+    )
     .addUserOption(option => 
         option.setName("對手1")
         .setDescription("對手1")
@@ -13,7 +30,7 @@ const ticTacToeData = new SlashCommandBuilder()
         option.setName("對手2")
         .setDescription("對手2")
         .setRequired(false)
-    )
+    );
 
 module.exports = {
     data: ticTacToeData,
@@ -22,47 +39,54 @@ module.exports = {
         const p1 = interaction.user;
         const p2 = interaction.options.getUser("對手1");
         const p3 = interaction.options.getUser("對手2");
+        const boardSize = interaction.options.getInteger("盤面大小");
 
         const players = [{
             username: p1.username,
             id: p1.id,
-            symbol: "❌"
+            symbol: "❌",
+            bot: true
         },{
             username: p2.username,
             id: p2.id,
             symbol: "⭕",
-            bot: true
         }];
 
         if(p3 !== null){
             players.push({
                 username: p3.name,
                 id: p3.id,
-                symbol: "🔺",
-                bot: true    
+                symbol: "🔺"
             });
         }
 
         const game = new DjsTicTacToe({
             source: interaction,
-            players: players
+            players: players,
+            strings: ticTacToe,
+            boardSize: boardSize
         });
-
-        let datetime = new Date().getFullYear() + "-" 
-                + (new Date().getMonth()+1) + "-" 
-                + new Date().getDate() + " " 
-                + new Date().getHours() + ":"  
-                + new Date().getMinutes() + ":" 
-                + new Date().getSeconds();
-        
-        console.log(`>ticTacToe *Game Start*`);
-        console.log(`from ${interaction.guild.name}`);
-        console.log(`by ${interaction.user.tag}`);
-        console.log(`at ${datetime}`);
-        console.log("------------");
 
         await game.initialize();
         await game.start();
-        await game.conclude();   
+        await game.conclude();
+
+        const cmdHookEmbed = new EmbedBuilder()
+            .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+            .setColor(0x00bfff)
+            .setDescription("Command: `/tictactoe`")
+            .addFields(
+                { name: "User Tag", value: interaction.user.tag },
+                { name: "User ID", value: interaction.user.id },
+                { name: "Guild Name", value: interaction.guild.name },
+                { name: "Guild ID", value: interaction.guild.id },
+                { name: "Players", value: `${p1.tag} & ${p2.tag}`}
+            )
+            .setTimestamp()
+            .setFooter({ text: 'Shard#1' });
+                
+        cmdHook.send({
+            embeds: [cmdHookEmbed]
+        }); 
     }
 }

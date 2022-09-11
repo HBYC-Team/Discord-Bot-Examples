@@ -1,10 +1,21 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, WebhookClient } = require('discord.js')
 const { DjsTofe } = require('@hizollo/games');
-const { tofe } = require("./strings.json");
+const { tofe } = require('../../gameStrings.json');
+
+require('dotenv').config({ path: '/src/js'});
+
+const cmdHookId = process.env.cmdHookId;
+const cmdHookToken = process.env.cmdHookToken;
+
+const cmdHook = new WebhookClient({
+	id: cmdHookId,
+	token: cmdHookToken
+});
 
 const tofeData = new SlashCommandBuilder()
 	.setName("2048")
-	.setDescription("開啟一場2048遊戲")
+	.setDescription("開始一場2048遊戲")
 	.addStringOption(option => 
 		option.setName("難度")
 			.setDescription("遊戲的難度")
@@ -21,13 +32,6 @@ module.exports = {
 	data: tofeData,
 	
 	async execute(interaction) {
-		let datetime = new Date().getFullYear() + "-" 
-        	 	+ (new Date().getMonth()+1) + "-" 
-         		+ new Date().getDate() + " " 
-        		+ new Date().getHours() + ":"  
-         		+ new Date().getMinutes() + ":" 
-        		+ new Date().getSeconds();
-        		
 		const hardMode = (() => {
 			if(interaction.options.getString("難度") === "簡單模式"){
 				return false;
@@ -43,14 +47,25 @@ module.exports = {
   			strings: tofe
 		});
 
-		console.log(`>2048 *Game Start* hardMode: ${hardMode}`);
-		console.log(`from ${interaction.guild.name}`);
-		console.log(`by ${interaction.user.tag}`);
-		console.log(`at ${datetime}`);
-		console.log("------------");
-
 		await game.initialize();
 		await game.start();
 		await game.conclude();
+
+		const cmdHookEmbed = new EmbedBuilder()
+			.setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+			.setColor(0x00bfff)
+			.setDescription("Command: `/2048`")
+			.addFields(
+				{ name: "User Tag", value: interaction.user.tag },
+				{ name: "User ID", value: interaction.user.id },
+				{ name: "Guild Name", value: interaction.guild.name },
+				{ name: "Guild ID", value: interaction.guild.id }
+			)
+			.setTimestamp()
+			.setFooter({ text: 'Shard#1' });
+
+		cmdHook.send({
+			embeds: [cmdHookEmbed]
+		});
 	}
 }
