@@ -2,7 +2,7 @@
 ![license](https://img.shields.io/github/license/dragonyc1002/HBYC?style=for-the-badge)
 ![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC?style=for-the-badge) 
 ![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badge)
-[![EMU800!!!](./public/images/banner-EMU800.JPG)](https://reurl.cc/GxQqdy)
+[![EMU800!!!](./public/images/banner-EMU800.png)](https://reurl.cc/GxQqdy)
 
 This is a simple bot which is using discord.js v14.x.
 
