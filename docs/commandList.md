@@ -30,6 +30,7 @@ See the Introduce at [README.md](../README.md)
 * finalcode
 * fliptrip
 * gomoku
+* tictactoe
 
 # Go
 
