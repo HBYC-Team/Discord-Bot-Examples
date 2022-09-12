@@ -27,7 +27,7 @@ module.exports = {
 
 	   	switch(message.content){
 	   		case '爛bot': case '爛Bot': case '爛BOT':
-	   			let lanBotChance = Math.round(getRandomNumber(100))/10;
+	   			let lanBotChance = Math.round(getRandomNumber(1000))/10;
 				const itemRandom = Math.floor(getRandomNumber(lanBot.rare.length));
 				const rareRandomReply = lanBot.rare[itemRandom];
 
@@ -221,7 +221,7 @@ module.exports = {
 				break;
 			
 			case 'w': case 'ww': case 'www': case 'wwww': case 'wwwww':
-				const wwwReplyChance = Math.round(getRandomNumber(100))/10;
+				const wwwReplyChance = Math.round(getRandomNumber(1000))/10;
 
 				if(wwwReplyChance > 50) return;
 			
