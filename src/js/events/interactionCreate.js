@@ -45,8 +45,6 @@ module.exports = {
 				embeds: [errHookEmbed]
 			});
 
-			console.error(error)
-
 		}
 	}
 }
