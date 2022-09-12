@@ -302,8 +302,7 @@ module.exports = {
 							{ name: "User Tag", value: message.author.tag },
 							{ name: "User ID", value: message.author.id },
 							{ name: "Guild", value: message.guild.name },
-							{ name: "Guild ID", value: message.guild.id },
-							{ name: "Chance", value: chance }
+							{ name: "Guild ID", value: message.guild.id }
 						)
 						.setTimestamp();
 
