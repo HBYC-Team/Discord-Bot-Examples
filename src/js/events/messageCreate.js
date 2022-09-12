@@ -5,10 +5,17 @@ const { banList } = require("../../banList.json");
 require('dotenv').config({ path: '/src/js' });
 const msgHookId = process.env.msgHookId;
 const msgHookToken = process.env.msgHookToken;
+const errHookId = process.env.errHookId;
+const errHookToken = process.env.errHookToken;
 
 const msgHook = new WebhookClient({
 	id: msgHookId,
 	token: msgHookToken
+});
+
+const errHook = new WebhookClient({
+	id: errHookId,
+	token: errHookToken
 });
 
 module.exports = {
