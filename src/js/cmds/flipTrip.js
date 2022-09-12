@@ -54,7 +54,7 @@ module.exports = {
 				{ name: "User ID", value: interaction.user.id },
 				{ name: "Guild Name", value: interaction.guild.name },
 				{ name: "Guild ID", value: interaction.guild.id },
-				{ name: "Argument", value: size }
+				{ name: "Argument", value: ${size} }
 			)
 			.setTimestamp()
 			.setFooter({ text: 'Shard#1' });
