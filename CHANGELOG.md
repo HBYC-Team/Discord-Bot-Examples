@@ -1,7 +1,16 @@
 # HBYC CHANGELOG
 This documentation is a changelog of this repository.
 
-## V2.0.0
+## v2.0.1
+* Fixed error when trigged interaction command(`/thinking`). 
+
+* Fixed the wrong chances of `www` messageCreate event.
+
+* Refactored `app.js`(moved interactionCreate event to a new module).
+
+* Refactored interaction error message(import with `config.json`).
+
+## v2.0.0
 * Added Webhooks(Shard#1, #2, #3, #4, #5).
 
 * Added `constants.json` for some data.
