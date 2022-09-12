@@ -16,8 +16,6 @@ const path = require('path');
 require("dotenv").config();
 const token = process.env.TOKEN;
 
-const errHookId = process.env.errHookId;
-const errHookToken = process.env.errHookToken;
 const botHookId = process.env.botHookId;
 const botHookToken = process.env.botHookToken;
 
@@ -39,11 +37,6 @@ const client = new Client({
 		Partials.GuildMember, 
 		Partials.Reaction
 	] 
-});
-
-const errHook = new WebhookClient({
-    id: errHookId,
-    token: errHookToken
 });
 
 const botHook = new WebhookClient({
@@ -75,40 +68,6 @@ for(const file of eventFiles) {
 	}
 }
 
-	
-client.on("interactionCreate", async interaction => {
-	if(!interaction.type === InteractionType.ApplicationCommand) return;
-	if(banList.includes(interaction.user.id)) return;
-	
-	const command = client.commands.get(interaction.commandName);
-
-	if(!command) return;
-
-	try {
-		await command.execute(interaction);
-	} catch(error){
-		await interaction.user.send(`指令發生錯誤，已經將錯誤回報到後台，有任何問題可以到此詢問：${supportGuild.invite}`);
-
-		const errHookEmbed = new EmbedBuilder()
-			.setTitle(`Error Log - /${interaction.commandName}`)
-			.setColor(0xff0000)
-			.addFields(
-				{ name: 'Error Code', value: error.message },
-				{ name: "User Tag", value: interaction.user.tag },
-				{ name: "User ID", value: interaction.user.id },
-				{ name: "Guild", value: interaction.guild.name },
-				{ name: "Guild ID", value: interaction.guild.id }
-			) 
-			.setTimestamp()
-			.setFooter({ text: `Shard#5` });
-
-		errHook.send({
-			embeds: [errHookEmbed]
-		});
-
-	}
-});
-
 client.on("guildCreate", guild => {
 	const guildJoinHookEmbed = new EmbedBuilder()
 			.setTitle(`Bot Log - Joined Guild`)
@@ -126,7 +85,7 @@ client.on("guildCreate", guild => {
 	});
 });
 
-client.on("guildCreate", guild => {
+client.on("guildDelete", guild => {
 	const guildJoinHookEmbed = new EmbedBuilder()
 			.setTitle(`Bot Log - Lefted Guild`)
 			.setColor(0x362980)
