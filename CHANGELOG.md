@@ -1,6 +1,25 @@
 # HBYC CHANGELOG
 This documentation is a changelog of this repository.
 
+## v2.1.0
+* Added few lines of webhook embeds([messageCreate](./src/js/events/messageCreate.js)).
+
+* Changed something([avatar.ts](./src/ts/avatar.ts)).
+
+* Fixed missing webhook.
+
+* Fixed wrong webhook embed shard number(errEmbed in [interactionCreate](./src/js/events/interactionCreate.js)).
+
+* Ignore `@everyone` mentions and `role` mentions, the bot will not reply([messageCreate](./src/js/events/messageCreate.js)).
+
+* Return when the bot got mention and the message event happen at the same time([messageCreate](./src/js/events/messageCreate.js)).
+
+* Reply when the argument number is not allowed([ticTacToe](./src/js/cmds/ticTacToe.js)).
+
+* Removed unuse import([deploy](./src/js/deploy.js)).
+
+* Refactored events when catching errors([messageCreate](./src/js/events/messageCreate.js)).
+
 ## v2.0.1
 * Fixed error when trigged interaction command(`/thinking`). 
 
