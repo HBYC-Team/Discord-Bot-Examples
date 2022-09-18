@@ -28,11 +28,35 @@ module.exports = {
 			return Math.random()*num;
 		}
 
+		async function catchError(error){
+			if(error.message === 'Missing Permissions') return;
+
+			const channelName = message.client.channels.cache.get(message.channelId);
+			await message.author.send(`${errors.messageSendErr}，錯誤代碼如下:\`${error.message}\``);
+					
+				const errHookEmbed = new EmbedBuilder()
+					.setTitle(`Error Log - ${message.content}`)
+					.setColor(0xff0000)
+					.addFields(
+						{ name: "Error Code", value: error.message },
+						{ name: "User Tag", value: message.author.tag },
+						{ name: "User ID", value: message.author.id },
+						{ name: "Guild", value: message.guild.name },
+						{ name: "Guild ID", value: message.guild.id }
+					)
+					.setTimestamp()
+					.setFooter({ text: `Shard#4` });
+
+				errHook.send({
+					embeds: [errHookEmbed],
+				});
+		}
+
 		if(message.author.bot) return;
 		if(message.guild == null) return;
 		if(banList.includes(message.author.id)) return;
 
-		if(message.mentions.has(message.client.user.id)){
+		if(message.mentions.has(message.client.user.id, { ignoreRoles: true, ignoreEveryone: true })){
 			const item = Math.floor(getRandomNumber(mention.length));
 			const mentionReplyMsg = mention[item];
 
@@ -59,26 +83,7 @@ module.exports = {
 				return;
 
 			} catch(error){
-				const channelName = message.client.channels.cache.get(message.channelId);
-				await message.author.send(errors.messageSendErr);
-					
-				const errHookEmbed = new EmbedBuilder()
-					.setTitle(`Error Log - ${message.content}`)
-					.setColor(0xff0000)
-					.addFields(
-						{ name: "Error Code", value: error.message },
-						{ name: "User Tag", value: message.author.tag },
-						{ name: "User ID", value: message.author.id },
-						{ name: "Guild", value: message.guild.name },
-						{ name: "Guild ID", value: message.guild.id }
-					)
-					.setTimestamp()
-					.setFooter({ text: `Shard#4` });
-
-				errHook.send({
-					embeds: [errHookEmbed],
-				});
-
+				catchError(error);
 				return;
 			}
 		}
@@ -120,25 +125,7 @@ module.exports = {
 					});
 
 				} catch(error){
-					const channelName = message.client.channels.cache.get(message.channelId);
-					await message.author.send(errors.messageSendErr);
-
-					const errHookEmbed = new EmbedBuilder()
-						.setTitle(`Error Log - ${message.content}`)
-						.setColor(0xff0000)
-						.addFields(
-							{ name: "Error Code", value: error.message },
-							{ name: "User Tag", value: message.author.tag },
-							{ name: "User ID", value: message.author.id },
-							{ name: "Guild", value: message.guild.name },
-							{ name: "Guild ID", value: message.guild.id }
-						)
-						.setTimestamp()
-						.setFooter({ text: `Shard#4` });
-
-					errHook.send({
-						embeds: [errHookEmbed],
-					});
+					catchError(error);
 				}
 
 				break;
@@ -164,26 +151,7 @@ module.exports = {
 					});
 
 				} catch(error){
-					const channelName = message.client.channels.cache.get(message.channelId);
-
-					await message.author.send(errors.messageSendErr);
-					
-					const errHookEmbed = new EmbedBuilder()
-						.setTitle(`Error Log - ${message.content}`)
-						.setColor(0xff0000)
-						.addFields(
-							{ name: "Error Code", value: error.message },
-							{ name: "User Tag", value: message.author.tag },
-							{ name: "User ID", value: message.author.id },
-							{ name: "Guild", value: message.guild.name },
-							{ name: "Guild ID", value: message.guild.id }
-						)
-						.setTimestamp()
-						.setFooter({ text: `Shard#4` });
-
-					errHook.send({
-						embeds: [errHookEmbed],
-					});
+					catchError(error);
 				}
 
 				break;
@@ -214,24 +182,7 @@ module.exports = {
 					});
 
 				} catch(error){
-					const channelName = message.client.channels.cache.get(message.channelId);
-					await message.author.send(errors.messageSendErr);
-					
-					const errHookEmbed = new EmbedBuilder()
-						.setTitle(`Error Log - ${message.content}`)
-						.setColor(0xff0000)
-						.addFields(
-							{ name: "Error Code", value: error.message },
-							{ name: "User Tag", value: message.author.tag },
-							{ name: "User ID", value: message.author.id },
-							{ name: "Guild", value: message.guild.name },
-							{ name: "Guild ID", value: message.guild.id }
-						)
-						.setTimestamp().setFooter({ text: `Shard#2` });;
-
-					errHook.send({
-						embeds: [errHookEmbed],
-					});
+					catchError(error);
 				}
 
 				break;
@@ -262,25 +213,7 @@ module.exports = {
 					});
 
 				} catch(error){
-					const channelName = message.client.channels.cache.get(message.channelId);
-					await message.author.send(errors.messageSendErr);
-					
-					const errHookEmbed = new EmbedBuilder()
-						.setTitle(`Error Log - ${message.content}`)
-						.setColor(0xff0000)
-						.addFields(
-							{ name: "Error Code", value: error.message },
-							{ name: "User Tag", value: message.author.tag },
-							{ name: "User ID", value: message.author.id },
-							{ name: "Guild", value: message.guild.name },
-							{ name: "Guild ID", value: message.guild.id }
-						)
-						.setTimestamp()
-						.setFooter({ text: `Shard#4` });
-
-					errHook.send({
-						embeds: [errHookEmbed],
-					});
+					catchError(error);
 				}
 
 				break;
@@ -324,25 +257,7 @@ module.exports = {
 					});
 
 				} catch(error){
-					const channelName = message.client.channels.cache.get(message.channelId);
-					await message.author.send(errors.messageSendErr);
-
-					const errHookEmbed = new EmbedBuilder()
-					.setTitle(`Error Log - ${message.content}`)
-					.setColor(0xff0000)
-					.addFields(
-						{ name: "Error Code", value: error.message },
-						{ name: "User Tag", value: message.author.tag },
-						{ name: "User ID", value: message.author.id },
-						{ name: "Guild", value: message.guild.name },
-						{ name: "Guild ID", value: message.guild.id }
-					)
-					.setTimestamp()
-					.setFooter({ text: `Shard#4` });
-
-					errHook.send({
-						embeds: [errHookEmbed],
-					});
+					catchError(error);
 				}
 
 				break;
