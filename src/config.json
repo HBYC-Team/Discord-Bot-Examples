@@ -36,7 +36,7 @@
 		"pistol": "<:pisthonk:984310418455539742>"
 	},
 	"errors": {
-		"messageSendErr": "我剛剛可能發生了一些狀況，如果沒有狀況請忽略這則訊息\n如果有出現問題，請檢查我的權限，若有更多疑問，歡迎加入後台進行詢問！\n邀請連結：https://discord.gg/J7X2nWXszp",
+		"messageSendErr": "我剛剛可能發生了一些狀況，如果沒有狀況請忽略這則訊息\n如果有出現問題，請檢查我的權限，若有更多疑問，歡迎加入後台進行詢問！\n邀請連結：https://discord.gg/J7X2nWXszp\n",
 		"interactionErr": "剛剛指令可能發生了一些問題，如果沒有狀況請忽略這則訊息\n如果有出現問題，請檢查我的權限，若有更多疑問，歡迎加入後台進行詢問！\n邀請連結：https://discord.gg/J7X2nWXszp"
 	}
 }
