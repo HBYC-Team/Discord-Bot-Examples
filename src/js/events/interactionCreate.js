@@ -39,12 +39,11 @@ module.exports = {
 					{ name: "Guild ID", value: interaction.guild.id }
 				) 
 				.setTimestamp()
-				.setFooter({ text: `Shard#5` });
+				.setFooter({ text: `Shard#4` });
 
 			errHook.send({
 				embeds: [errHookEmbed]
 			});
-
 		}
 	}
 }

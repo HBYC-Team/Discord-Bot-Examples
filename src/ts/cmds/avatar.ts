@@ -8,7 +8,7 @@ export const avatar: Command = {
 	description: "取得一個用戶的頭像",
 	type: ApplicationCommandType.ChatInput,
 	args: string[],
-	run: async(client: Client, interaction: CommandInteraction, ) => {
+	run: async(client: Client, interaction: CommandInteraction) => {
 		await interaction.followUp(user);
 	}
 }

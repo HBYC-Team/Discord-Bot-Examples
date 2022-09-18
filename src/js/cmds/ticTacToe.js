@@ -41,6 +41,11 @@ module.exports = {
         const p3 = interaction.options.getUser("對手2");
         const boardSize = interaction.options.getInteger("盤面大小");
 
+        if(!(boardSize > 0 && boardSize <= 4)){
+            await interaction.reply({ content: "你沒看到版面大小只能設定1至4之間嗎？眼睛瞎了？", ephemeral: true });
+            return;
+        }
+
         const players = [{
             username: p1.username,
             id: p1.id,

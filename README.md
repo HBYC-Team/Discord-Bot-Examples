@@ -12,27 +12,16 @@ This repository also has muiti-language examples.
 
 ## Features
 * JavaScript
-```
-* Easy game, chat commands.
-* Webhooks example.
-* A simple example of discord.js usage.
-```
 
-* Golang
-```
-Now, the bot can online, and added some events, others are still in developing.
-```
+> Webhook examples.
+
+> Simple example of discord.js usage.
 
 * Python
-```
-* Easy chat commands.
-```
 
-* TypeScript
-```
-Ping command which shows the latency of the bot.
-Others are still in developing.
-```
+> Simple chat commands.
+
+_**TypeScript and Golang part is still in developing.**_
 
 ## Configuration
 See at [configuration](./docs/configuration.md) file.
@@ -40,7 +29,7 @@ See at [configuration](./docs/configuration.md) file.
 ## Guide
 See at [Guide](./docs/guide).
 
-**This part is not finished yet.**
+_**This part is not finished yet.**_
 
 ## Command List
 See at [commandList](./docs/commandList.md) file.
@@ -52,6 +41,9 @@ See more at [LICENSE](./LICENSE) file.
 
 ## Changelog
 See at [Changelog](./CHANGELOG.md) file.
+
+## Invite this bot
+See the invite link in [constants](./src/constants.json) file.
 
 ## Author
 恐龍#2549/dragonyc1002。

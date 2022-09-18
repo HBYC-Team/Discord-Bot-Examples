@@ -1,31 +1,49 @@
-const { createMusicManager } = require("@kyometori/djsmusic");
+const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { createMusicManager } = require('@kyometori/djsmusic');
+const moment = require('moment');
+
+require('dotenv').config({ path: './src/js' });
+
+const botHookId = process.env.botHookId;
+const botHookToken = process.env.botHookToken;
+
+const botHook = new WebhookClient({
+	id: botHookId,
+	token: botHookToken
+});
 
 module.exports = {
 	name: "ready",
-	once: true,
-	execute(client) {
-		let datetime = new Date().getFullYear() + "-" 
-        	 	+ (new Date().getMonth()+1) + "-" 
-         		+ new Date().getDate() + " " 
-        		+ new Date().getHours() + ":"  
-         		+ new Date().getMinutes() + ":" 
-        		+ new Date().getSeconds();
-
+	async execute(client) {
+		const time = moment().format('YYYY-MM-DD HH:mm:ss');
+	 
   		createMusicManager(client, {
     		defaultMaxQueueSize: Infinity,
     		enableInlineVolume: true
 		});
 		
-		console.log("Bot Logined");
-        console.log(client.user.tag);
-        console.log("Logined at", datetime);
-        console.log("------------------------");
-        console.log(`Now Services in ${client.guilds.cache.size} guilds`)
-		console.log("------------------------");
-		client.user.setPresence({ activities: [{ name: `在 ${client.guilds.cache.size} 個伺服器中被壓榨\(´･ω･\`\)` }] });
-		console.log(client.guilds.cache.map(guild => guild.name));
-		console.log(client.guilds.cache.map(guild => guild.id));
-		console.log("------------------------");
+		await client.user.setPresence({ activities: [{ name: `在 ${client.guilds.cache.size} 個伺服器中被壓榨\(´･ω･\`\)` }] });
 
+		const loginEmbed = new EmbedBuilder()
+			.setColor(0x83ae58)
+			.setTitle("Bot Logined")
+			.setDescription(client.user.tag)
+			.addFields(
+        		{ name: "Logined at", value: time },
+        		{ name: "Server Count", value: `${client.guilds.cache.size}` }
+			)
+			.setTimestamp()
+			.setFooter({ text: "Shard#3" });
+
+		const serverNames = client.guilds.cache.map(guild => guild.name);
+		const serverIds = client.guilds.cache.map(guild => guild.id);
+			
+		botHook.send({
+			embeds: [loginEmbed],
+		});
+
+		botHook.send({
+			content: `${serverNames}\n------------------------\n${serverIds}`
+		});
 	}
 }

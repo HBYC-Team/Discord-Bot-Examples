@@ -1,8 +1,8 @@
 {
 	"bot": {
 		"name": "HBYC",
-		"version": "v2.0.0",
-		"releaseDate": "2022-09-11",
+		"version": "v2.1.0",
+		"releaseDate": "2022-09-18",
 		"invite": "https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands"
 	},
 	"links": {
