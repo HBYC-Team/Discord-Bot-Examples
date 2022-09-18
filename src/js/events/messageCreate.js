@@ -56,6 +56,8 @@ module.exports = {
 					embeds: [msgHookEmbed],
 				});
 
+				return;
+
 			} catch(error){
 				const channelName = message.client.channels.cache.get(message.channelId);
 				await message.author.send(errors.messageSendErr);
@@ -76,10 +78,10 @@ module.exports = {
 				errHook.send({
 					embeds: [errHookEmbed],
 				});
+
+				return;
 			}
 		}
-
-		if(message.mentions.has(message.client.user.id)) return;
 
 	   	switch(message.content){
 	   		case '爛bot': case '爛Bot': case '爛BOT':
