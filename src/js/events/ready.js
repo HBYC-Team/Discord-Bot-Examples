@@ -42,8 +42,7 @@ module.exports = {
 			embeds: [loginEmbed],
 		});
 
-		botHook.send({
-			content: `${serverNames}\n------------------------\n${serverIds}`
-		});
+		console.log(serverNames);
+		console.log(serverIds);
 	}
 }
