@@ -42,7 +42,7 @@ module.exports = {
 			.setColor(0x4b56a8)
 			.setTitle("用戶回報")
 			.addFields(
-				{ name: "用戶名稱", value: `${interaction.user.username}` },
+				{ name: "用戶名稱", value: `${interaction.user.tag}` },
 				{ name: "ID", value: `${interaction.user.id}` },
 				{ name: "回報類型", value: type },
 				{ name: "回報內容", value: `\`${content}\`` },
@@ -67,7 +67,7 @@ module.exports = {
 			.setColor(color)
 			.setTitle("用戶回報")
 			.addFields(
-				{ name: "用戶名稱", value: `${interaction.user.username}` },
+				{ name: "用戶名稱", value: `${interaction.user.tag}` },
 				{ name: "ID", value: `${interaction.user.id}` },
 				{ name: "回報類型", value: type },
 				{ name: "回報伺服器", value: `${interaction.guild.name} (ID:${interaction.guild.id})` },
