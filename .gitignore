@@ -1,19 +1,17 @@
 node_modules/
 osuApiKey.txt
-go.mod
-go.sum
 
 src/js/.env
 src/js/modules/
-src/js/cmds/join.js
-src/js/osu.js
-src/js/buttonRole.js
+src/js/cmds/join.cjs
+src/js/cmds/osu.cjs
+src/js/cmds/buttonRole.js
 
 src/go/.env
 
 src/python/.env
 src/python/cmds/__pycache__/
-src/python/core/__pycacho__/
+src/python/core/__pycache__/
 
 src/ts/.env
 src/ts/dist
