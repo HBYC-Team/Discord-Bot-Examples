@@ -11,7 +11,6 @@
     "@discordjs/rest": "^1.1.0",
     "@hizollo/games": "^2.4.0",
     "@hizollo/osu-api": "^1.2.0",
-    "@kyometori/djsmusic": "^0.8.5",
     "discord.js": "^14.3.0",
     "dotenv": "^16.0.2",
     "moment": "^2.29.4"
