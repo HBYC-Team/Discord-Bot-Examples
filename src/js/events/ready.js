@@ -1,5 +1,4 @@
 const { EmbedBuilder, WebhookClient } = require('discord.js');
-const { createMusicManager } = require('@kyometori/djsmusic');
 const moment = require('moment');
 
 require('dotenv').config({ path: './src/js' });
@@ -16,11 +15,6 @@ module.exports = {
 	name: "ready",
 	async execute(client) {
 		const time = moment().format('YYYY-MM-DD HH:mm:ss');
-	 
-  		createMusicManager(client, {
-    		defaultMaxQueueSize: Infinity,
-    		enableInlineVolume: true
-		});
 		
 		await client.user.setPresence({ activities: [{ name: `在 ${client.guilds.cache.size} 個伺服器中被壓榨\(´･ω･\`\)` }] });
 

@@ -6,7 +6,6 @@
  ********Release Date: 2022-09-10*********
  *****************************************/
 const { Client, Collection, GatewayIntentBits, Partials, InteractionType, WebhookClient, EmbedBuilder } = require("discord.js");
-const { createMusicManager } = require("@kyometori/djsmusic");
 const { lanBot, dalao, mention, lanDino, www, errors } = require("../config.json");
 const { bot, supportGuild } = require('../constants.json')
 const { banList } = require("../banList.json");
