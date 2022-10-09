@@ -3,8 +3,8 @@
 #*********Author:dragonyc1002********#
 #***********Version:1.0.0************#
 ######################################
-from os import listdir
 import time
+from os import listdir
 import discord
 from discord.ext import commands
 from discord.commands import Option
@@ -15,6 +15,7 @@ client = discord.Bot(activity=discord.Game(name="你好，我是HBYC"))
 
 cogs = [cog[:-3] for cog in listdir("./cmds") if cog.endswith(".py")]
 [client.load_extension(f"cmds.{cog[:-3]}") for cog in listdir("./cmds") if cog.endswith(".py")]
+
 
 @client.event
 async def on_ready():
@@ -76,4 +77,4 @@ async def activity(
 
 load_dotenv()
 if __name__ == "__main__":
-    client.run("ODkzNjg4NzY2MTk4MzI5MzQ0.YVfGhQ.1mdQZaJKMMN-c77IAkAxIqS0OgU")
+    client.run("TOKEN")
