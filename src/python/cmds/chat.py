@@ -8,6 +8,7 @@ import json
 with open("cmds/pyconfig.json", encoding="utf-8") as pyconfig:
     pyconf = json.load(pyconfig)
 
+
 class Chat(Cog_Extension):
     @commands.slash_command(name="say", description="讓機器人說出一句話")
     async def say(
@@ -104,10 +105,6 @@ class Chat(Cog_Extension):
         if 種類 == "pistol":
             await ctx.respond("<:pisthonk:984310418455539742>已傳送", ephemeral=True)
             await ctx.send("<:pisthonk:984310418455539742>")
-
-        else:
-            await ctx.respond(":thinking:已傳送", ephemeral=True)
-            await ctx.send(":thinking:")
 
 
 def setup(client):
