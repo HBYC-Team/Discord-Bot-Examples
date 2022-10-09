@@ -11,7 +11,7 @@ from discord.commands import Option
 
 from dotenv import load_dotenv
 
-client = discord.Bot(activity=discord.Game(name="你好，我是HBYC"))
+client = discord.Bot(activity=discord.Game(name="你好，我是HBYC"), allowed_mentions=discord.AllowedMentions.none())
 
 cogs = [cog[:-3] for cog in listdir("./cmds") if cog.endswith(".py")]
 [client.load_extension(f"cmds.{cog[:-3]}") for cog in listdir("./cmds") if cog.endswith(".py")]
