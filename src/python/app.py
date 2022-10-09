@@ -3,126 +3,77 @@
 #*********Author:dragonyc1002********#
 #***********Version:1.0.0************#
 ######################################
+from os import listdir
+import time
 import discord
 from discord.ext import commands
-from discord.commands import slash_command, Option
-
-import os
-import time
-import json
+from discord.commands import Option
 
 from dotenv import load_dotenv
 
-intents = discord.Intents.default()
-intents.message_content = True
+client = discord.Bot(activity=discord.Game(name="你好，我是HBYC"))
 
-client = commands.Bot(intents=intents)
-client.remove_command("help")
+cogs = [cog[:-3] for cog in listdir("./cmds") if cog.endswith(".py")]
+[client.load_extension(f"cmds.{cog[:-3]}") for cog in listdir("./cmds") if cog.endswith(".py")]
 
 @client.event
 async def on_ready():
     print(f"Logged in as {client.user} (ID: {client.user.id})")
-    print(f"Logged at", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    print("Logged at", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     print("------------------------")
     for guild in client.guilds:
         print(guild.id, guild.name)
     print("------------------------")
-    await client.change_presence(activity=discord.Game(name="你好，我是HBYC"))    
 
-@client.slash_command(name="load", descriptio="Load the Cog_Extension")
+
+@client.slash_command(name="load", description="Load the Cog_Extension")
+@commands.is_owner()
 async def load(
     ctx: discord.ApplicationContext,
-    extension: Option(str, "Enter Extension Name", choices=["chat", "event","music", "help", "user"]),
-    password: Option(str, "passwd")
+    extension: Option(str, "Enter Extension Name", choices=cogs)
 ):
-    PermessionDeniedFrom = (f"{ctx.author} at {ctx.author.guild.name}")
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-
-    if password == passwd:
-        client.load_extension(f"cmds.{extension}")
-        await ctx.respond(f"加載Cog: {extension} 完成!")
-        print(f"Loaded {extension}")
-        print("at:", timestamp)
-
-    else:
-        await ctx.respond("密碼錯誤，如錯誤超過3次將直接把你列入使用黑名單(ban)，未來將無法使用HBYC")
-        print("###Someone tried to load the cog###", PermessionDeniedFrom)
+    client.load_extension(f"cmds.{extension}")  
+    await ctx.respond(f"`{extension}` 已完成加載")
+    print(f"{ctx.author} Loaded {extension} at {timestamp}")
 
 
 @client.slash_command(name="unload", description="Un-Load the Cog_Extension")
+@commands.is_owner()
 async def unload(
     ctx: discord.ApplicationContext,
-    extension: Option(str, "Enter Extension Name", choices=["chat", "event","music", "help", "user"]),
-    password: Option(str, "passwd")
+    extension: Option(str, "Enter Extension Name", choices=cogs)
 ):
-    PermessionDeniedFrom = (f"{ctx.author} at {ctx.author.guild.name}")
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    if password == passwd :
-        client.unload_extension(f"cmds.{extension}")
-        await ctx.respond(f"關閉Cog: {extension} 完成!")
-        print(f"Un-Loaded {extension}")
-        print("at:", timestamp)
-    else:
-        await ctx.respond("密碼錯誤，如錯誤超過3次將直接把你列入使用黑名單(ban)，未來將無法使用HBYC")
-        print("###Someone tried to unload the cog###", PermessionDeniedFrom)
-
+    client.unload_extension(f"cmds.{extension}")
+    await ctx.respond(f"`{extension}` 已完成卸載")
+    print(f"{ctx.author} Un-Loaded {extension} at {timestamp}")
+      
 
 @client.slash_command(name="reload", description="Re-Load the Cog_Extension")
+@commands.is_owner()
 async def reload(
     ctx: discord.ApplicationContext,
-    extension: Option(str, "Enter Extension Name", choices=["chat", "event","music", "help", "user"]),
-    password: Option(str, "passwd")
+    extension: Option(str, "Enter Extension Name", choices=cogs)
 ):
-    PermessionDeniedFrom = (f"{ctx.author} at {ctx.author.guild.name}")
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    if password == passwd:
-        client.reload_extension(f"cmds.{extension}")
-        await ctx.respond(f"重新加載Cog: {extension} 完成!")
-        print(f"Re-Loaded {extension}")
-        print("at:", timestamp)
-    else:
-        await ctx.respond("密碼錯誤，如錯誤超過3次將直接把你列入使用黑名單(ban)，未來將無法使用HBYC")
-        print("###Someone tried to reload the cog###", PermessionDeniedFrom)
+    client.reload_extension(f"cmds.{extension}")
+    await ctx.respond(f"`{extension}` 已完成重新載入")
+    print(f"{ctx.author} Re-Loaded {extension} at {timestamp}")
 
 
-@client.slash_command(name="custom", description="owner only")
-async def custom(
-  ctx: discord.ApplicationContext, 
-  presence: Option(str, "presence name"), 
-  password: Option(str, "passwd")
+@client.slash_command(name="activity", description="Change bot activity to the presence")
+@commands.is_owner()
+async def activity(
+    ctx: discord.ApplicationContext,
+    presence: Option(str, "Enter Presence Name")
 ):
-    PermessionDeniedFrom = (f"{ctx.author} at {ctx.author.guild.name}")
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    if password == passwd:
-        await client.change_presence(activity=discord.Game(name=presence))
-        await ctx.respond(f"changed presence to {presence} done.")
-        print("/custom")
-        print(f"Presence changed:", presence)
-        print("from:", ctx.author.guild.name)
-        print("by:", ctx.author)
-        print(f"at:", timestamp)
-        print("-------")
-    else:
-        await ctx.respond("密碼錯誤，如錯誤超過3次將直接把你列入使用黑名單(ban)，未來將無法使用HBYC")
-        print("### Someone tried to use custom presence as non-owner failed ###", PermessionDeniedFrom)
-        print("User:", ctx.author)
-        print(f"at:", timestamp)
-        print("-------")
-
-
-with open("config.json") as config:
-    conf = json.load(config)
-
-
-for filename in os.listdir("./cmds"):
-    if filename.endswith(".py"):
-        client.load_extension(f"cmds.{filename[:-3]}")
-
+    await client.change_presence(activity=discord.Game(name=presence))
+    await ctx.respond(f"狀態已被更改為 `{presence}`")
+    print(f"{ctx.author} Changed activity to {presence} at {timestamp}")
+  
 
 load_dotenv()
-token = os.getenv("DISCORD_TOKEN")
-passwd = os.getenv("password")
-
-
 if __name__ == "__main__":
-    client.run(token)    
+    client.run("ODkzNjg4NzY2MTk4MzI5MzQ0.YVfGhQ.1mdQZaJKMMN-c77IAkAxIqS0OgU")
