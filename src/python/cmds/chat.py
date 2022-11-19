@@ -1,9 +1,9 @@
+import json
+import time
+
+from core.classes import Cog_Extension
 from discord import Option, ApplicationContext
 from discord.ext import commands
-from core.classes import Cog_Extension
-
-import time
-import json
 
 with open("cmds/pyconfig.json", encoding="utf-8") as pyconfig:
     pyconf = json.load(pyconfig)
@@ -11,38 +11,26 @@ with open("cmds/pyconfig.json", encoding="utf-8") as pyconfig:
 
 class Chat(Cog_Extension):
     @commands.slash_command(name="say", description="讓機器人說出一句話")
-    async def say(
-        self,
-        ctx: ApplicationContext,
-        *,
-        content: Option(str, "訊息內容")
-    ):
+    async def say(self, ctx: ApplicationContext, *, content: Option(str, "訊息內容")):
         await ctx.respond("你的訊息已經成功傳送", ephemeral=True)
         await ctx.send(content)
 
     @commands.slash_command(name="echo", description="讓機器人重複你說的一句話")
-    async def echo(
-        self,
-        ctx: ApplicationContext,
-        *,
-        content: Option(str, "訊息內容")
-    ):
+    async def echo(self, ctx: ApplicationContext, *, content: Option(str, "訊息內容")):
         await ctx.respond(content)
 
     @commands.slash_command(name="thinking", description="w")
     async def thinking(
-        self,
-        ctx: ApplicationContext,
-        種類: Option(str, "🤔", choices=pyconf["thinking"])
+        self, ctx: ApplicationContext, 種類: Option(str, "🤔", choices=pyconf["thinking"])
     ):
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print(f"{ctx.author} use /{ctx.command.name} {種類} at {timestamp}")
-                
+
         if 種類 == None:
             await ctx.respond("<:thinking:974621588257398784>已傳送", ephemeral=True)
             await ctx.send("<:thinking:974621588257398784>")
-      
-        if 種類 == "normal":    
+
+        if 種類 == "normal":
             await ctx.respond("<:thinking:974621588257398784>已傳送", ephemeral=True)
             await ctx.send("<:thinking:974621588257398784>")
 
@@ -53,11 +41,11 @@ class Chat(Cog_Extension):
         if 種類 == "attano":
             await ctx.respond("<:attanothink:984310669425930251>已傳送", ephemeral=True)
             await ctx.send("<:attanothink:984310669425930251>")
-                
+
         if 種類 == "thonk":
             await ctx.respond("<:thonk:984310370363645962>已傳送", ephemeral=True)
             await ctx.send("<:thonk:984310370363645962>")
-                
+
         if 種類 == "superthonk":
             await ctx.respond("<:superthonk:984310368790781992>已傳送", ephemeral=True)
             await ctx.send("<:superthonk:984310368790781992>")
