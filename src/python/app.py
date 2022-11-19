@@ -1,20 +1,27 @@
-######################################
-#*****Discord Python Bot Example*****#
-#*********Author:dragonyc1002********#
-#***********Version:1.0.0************#
-######################################
+#######################################
+# *****Discord Python Bot Example*****#
+# *********Author:dragonyc1002********#
+# ***********Version:1.0.0************#
+#######################################
 import time
 from os import listdir
-import discord
-from discord.ext import commands
-from discord.commands import Option
 
+import discord
+from discord.commands import Option
+from discord.ext import commands
 from dotenv import load_dotenv
 
-client = discord.Bot(activity=discord.Game(name="你好，我是HBYC"), allowed_mentions=discord.AllowedMentions.none())
+client = discord.Bot(
+    activity=discord.Game(name="你好，我是HBYC"),
+    allowed_mentions=discord.AllowedMentions.none(),
+)
 
 cogs = [cog[:-3] for cog in listdir("./cmds") if cog.endswith(".py")]
-[client.load_extension(f"cmds.{cog[:-3]}") for cog in listdir("./cmds") if cog.endswith(".py")]
+[
+    client.load_extension(f"cmds.{cog[:-3]}")
+    for cog in listdir("./cmds")
+    if cog.endswith(".py")
+]
 
 
 @client.event
@@ -31,10 +38,10 @@ async def on_ready():
 @commands.is_owner()
 async def load(
     ctx: discord.ApplicationContext,
-    extension: Option(str, "Enter Extension Name", choices=cogs)
+    extension: Option(str, "Enter Extension Name", choices=cogs),
 ):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    client.load_extension(f"cmds.{extension}")  
+    client.load_extension(f"cmds.{extension}")
     await ctx.respond(f"`{extension}` 已完成加載")
     print(f"{ctx.author} Loaded {extension} at {timestamp}")
 
@@ -43,19 +50,19 @@ async def load(
 @commands.is_owner()
 async def unload(
     ctx: discord.ApplicationContext,
-    extension: Option(str, "Enter Extension Name", choices=cogs)
+    extension: Option(str, "Enter Extension Name", choices=cogs),
 ):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     client.unload_extension(f"cmds.{extension}")
     await ctx.respond(f"`{extension}` 已完成卸載")
     print(f"{ctx.author} Un-Loaded {extension} at {timestamp}")
-      
+
 
 @client.slash_command(name="reload", description="Re-Load the Cog_Extension")
 @commands.is_owner()
 async def reload(
     ctx: discord.ApplicationContext,
-    extension: Option(str, "Enter Extension Name", choices=cogs)
+    extension: Option(str, "Enter Extension Name", choices=cogs),
 ):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     client.reload_extension(f"cmds.{extension}")
@@ -63,17 +70,17 @@ async def reload(
     print(f"{ctx.author} Re-Loaded {extension} at {timestamp}")
 
 
-@client.slash_command(name="activity", description="Change bot activity to the presence")
+# TODO: edit this
+@client.slash_command(name="activity", description="...")
 @commands.is_owner()
 async def activity(
-    ctx: discord.ApplicationContext,
-    presence: Option(str, "Enter Presence Name")
+    ctx: discord.ApplicationContext, presence: Option(str, "Enter Presence Name")
 ):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     await client.change_presence(activity=discord.Game(name=presence))
     await ctx.respond(f"狀態已被更改為 `{presence}`")
     print(f"{ctx.author} Changed activity to {presence} at {timestamp}")
-  
+
 
 load_dotenv()
 if __name__ == "__main__":
